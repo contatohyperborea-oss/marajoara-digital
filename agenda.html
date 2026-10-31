@@ -1,0 +1,1176 @@
+
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#AA3716">
+<meta name="description" content="Agenda e Eventos do Edifício Marajoara III. Confira datas, encontros e atividades divulgadas pela administração.">
+<title>Agenda e Eventos | Marajoara III</title>
+
+<style>
+:root{
+  --terra:#AA3716;
+  --terra2:#7D2A13;
+  --creme:#F2E3C7;
+  --papel:#FBF7EF;
+  --branco:#FFFDF9;
+  --verde:#4D5F2D;
+  --floresta:#1E2F0F;
+  --texto:#2D180A;
+  --suave:#685646;
+  --borda:#E5D7BF;
+  --sombra:0 10px 28px #2D180A12;
+}
+
+*,*::before,*::after{
+  box-sizing:border-box;
+}
+
+[hidden]{
+  display:none!important;
+}
+
+html{
+  scroll-behavior:smooth;
+  scroll-padding-top:94px;
+}
+
+body{
+  margin:0;
+  background:var(--papel);
+  color:var(--texto);
+  font:16px/1.55 system-ui,-apple-system,
+    "Segoe UI",sans-serif;
+}
+
+a{color:inherit}
+
+button{
+  font:inherit;
+  cursor:pointer;
+}
+
+a:focus-visible,
+button:focus-visible{
+  outline:3px solid var(--verde);
+  outline-offset:3px;
+}
+
+.container{
+  width:min(1200px,calc(100% - 36px));
+  margin-inline:auto;
+}
+
+.skip{
+  position:fixed;
+  left:12px;
+  top:-90px;
+  z-index:100;
+  background:var(--floresta);
+  color:#fff;
+  padding:10px 15px;
+  border-radius:8px;
+}
+
+.skip:focus{
+  top:10px;
+}
+
+/* =====================================
+   CABEÇALHO — MARAJOARA III
+   ===================================== */
+
+.cabecalho{
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:var(--papel);
+  border-bottom:1px solid var(--borda);
+}
+
+.topo{
+  min-height:88px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  position:relative;
+}
+
+.marca{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  text-decoration:none;
+  min-width:0;
+}
+
+.marca img{
+  display:block;
+  width:60px;
+  height:60px;
+  object-fit:contain;
+  flex:none;
+}
+
+.marca-texto{
+  display:flex;
+  flex-direction:column;
+  line-height:1.15;
+}
+
+.marca-texto strong{
+  font:bold 22px Georgia,serif;
+}
+
+.marca-texto small{
+  margin-top:5px;
+  color:var(--verde);
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+
+/* NAVEGAÇÃO */
+
+.menu{
+  display:flex;
+  align-items:center;
+  gap:23px;
+}
+
+.menu a{
+  text-decoration:none;
+  font-size:13px;
+  font-weight:750;
+  border-bottom:2px solid transparent;
+  padding:9px 0;
+}
+
+.menu a:hover,
+.menu a[aria-current="page"]{
+  color:var(--terra);
+  border-color:var(--terra);
+}
+
+.hamburguer{
+  display:none;
+  width:45px;
+  height:45px;
+  flex:none;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  gap:5px;
+  border:1px solid var(--borda);
+  border-radius:10px;
+  background:var(--branco);
+}
+
+.hamburguer span{
+  display:block;
+  width:21px;
+  height:2px;
+  border-radius:3px;
+  background:var(--terra2);
+  transition:transform .2s,opacity .2s;
+}
+
+.hamburguer[aria-expanded="true"]
+span:first-child{
+  transform:translateY(7px) rotate(45deg);
+}
+
+.hamburguer[aria-expanded="true"]
+span:nth-child(2){
+  opacity:0;
+}
+
+.hamburguer[aria-expanded="true"]
+span:last-child{
+  transform:translateY(-7px) rotate(-45deg);
+}
+
+/* =====================================
+   CONTEÚDO DA AGENDA
+   ===================================== */
+
+main{
+  min-height:calc(100vh - 170px);
+}
+
+.trilha{
+  display:flex;
+  gap:9px;
+  align-items:center;
+  flex-wrap:wrap;
+  padding:20px 0;
+  font-size:13px;
+  color:var(--suave);
+}
+
+.trilha a{
+  color:var(--terra2);
+  text-underline-offset:3px;
+}
+
+/* APRESENTAÇÃO RESPONSIVA */
+
+.apresentacao{
+  display:grid;
+  grid-template-columns:
+    minmax(0,1.55fr)
+    minmax(0,1fr);
+  gap:22px;
+  align-items:stretch;
+}
+
+/* BANNER 16:9 SEM CORTES */
+
+.capa{
+  position:relative;
+  aspect-ratio:16/9;
+  overflow:hidden;
+  min-width:0;
+  background:var(--creme);
+  border:1px solid var(--borda);
+  border-radius:14px;
+  box-shadow:var(--sombra);
+}
+
+.capa-fundo{
+  position:absolute;
+  inset:0;
+  display:grid;
+  place-content:center;
+  gap:8px;
+  padding:18px;
+  text-align:center;
+  background:linear-gradient(
+    130deg,
+    var(--creme),
+    #E2C6A1
+  );
+  color:var(--terra2);
+}
+
+.capa-fundo strong{
+  font:bold clamp(20px,3vw,39px)
+    Georgia,serif;
+}
+
+.capa-fundo small{
+  font-size:14px;
+}
+
+.capa img{
+  position:absolute;
+  inset:0;
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  opacity:0;
+}
+
+.capa img.pronta{
+  opacity:1;
+}
+
+/* PAINEL INFORMATIVO */
+
+.painel{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  min-width:0;
+  padding:26px 28px;
+  background:var(--branco);
+  border:1px solid var(--borda);
+  border-radius:14px;
+  box-shadow:var(--sombra);
+}
+
+.rotulo{
+  display:block;
+  color:var(--verde);
+  font-size:11px;
+  font-weight:850;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+}
+
+h1,h2,h3{
+  font-family:Georgia,
+    "Times New Roman",serif;
+  line-height:1.18;
+  text-wrap:balance;
+}
+
+h1{
+  margin:9px 0 13px;
+  font-size:clamp(29px,3.3vw,42px);
+}
+
+.painel p{
+  margin:0;
+  color:var(--suave);
+  font-size:15px;
+}
+
+/* SITUAÇÃO DA AGENDA */
+
+.estado-agenda{
+  margin-top:23px;
+  padding:15px 16px;
+  border-left:3px solid var(--verde);
+  border-radius:0 9px 9px 0;
+  background:#F3F0E5;
+}
+
+.estado-agenda strong{
+  display:block;
+  color:var(--floresta);
+  font-size:14px;
+  margin-bottom:5px;
+}
+
+.estado-agenda p{
+  font-size:13px;
+  line-height:1.5;
+}
+
+.voltar{
+  display:inline-flex;
+  align-self:start;
+  margin-top:22px;
+  color:var(--terra2);
+  font-size:13px;
+  font-weight:800;
+  text-underline-offset:4px;
+}
+
+/* =====================================
+   EVENTOS CADASTRADOS
+   ===================================== */
+
+.eventos{
+  padding:31px 0 42px;
+}
+
+.titulo-secao{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  margin:0 0 17px;
+}
+
+.titulo-secao h2{
+  margin:0;
+  font-size:clamp(23px,3vw,31px);
+}
+
+.titulo-secao::after{
+  content:"";
+  height:1px;
+  flex:1;
+  background:var(--borda);
+}
+
+.lista{
+  display:grid;
+  grid-template-columns:
+    repeat(2,minmax(0,1fr));
+  gap:15px;
+}
+
+.evento{
+  display:grid;
+  grid-template-columns:
+    84px minmax(0,1fr);
+  gap:17px;
+  align-items:start;
+  padding:18px;
+  background:var(--branco);
+  border:1px solid var(--borda);
+  border-radius:13px;
+}
+
+.data-box{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  min-height:85px;
+  padding:10px 5px;
+  background:var(--creme);
+  color:var(--terra2);
+  border-radius:10px;
+  text-align:center;
+}
+
+.data-box b{
+  font:bold 30px/1 Georgia,serif;
+}
+
+.data-box span{
+  font-size:11px;
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:.05em;
+}
+
+.evento h3{
+  font-size:21px;
+  margin:0 0 7px;
+}
+
+.evento p{
+  font-size:14px;
+  color:var(--suave);
+  margin:0 0 9px;
+}
+
+.evento .dados{
+  font-size:12px;
+  font-weight:700;
+  color:var(--verde);
+}
+
+#historico{
+  margin-top:35px;
+}
+
+/* RODAPÉ */
+
+.rodape{
+  margin-top:35px;
+  padding:19px 0;
+  background:var(--terra2);
+  color:#F5E8D5;
+  font-size:13px;
+}
+
+.rodape .container{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+/* =====================================
+   TABLET E MOBILE
+   ===================================== */
+
+@media(max-width:900px){
+
+  .topo{
+    min-height:78px;
+  }
+
+  .marca img{
+    width:54px;
+    height:54px;
+  }
+
+  .marca-texto strong{
+    font-size:19px;
+  }
+
+  .hamburguer{
+    display:flex;
+  }
+
+  .menu{
+    display:none;
+    position:absolute;
+    top:100%;
+    right:0;
+    z-index:60;
+    width:max-content;
+    max-width:calc(100vw - 28px);
+    max-height:calc(100dvh - 85px);
+    overflow-y:auto;
+    flex-direction:column;
+    align-items:stretch;
+    gap:5px;
+    padding:7px;
+    background:var(--papel);
+    border:1px solid var(--borda);
+    border-radius:0 0 12px 12px;
+    box-shadow:var(--sombra);
+  }
+
+  .menu.aberto{
+    display:flex;
+  }
+
+  .menu a{
+    display:flex;
+    align-items:center;
+    min-height:39px;
+    padding:9px 12px;
+    white-space:nowrap;
+    line-height:1.25;
+    background:var(--branco);
+    border:1px solid var(--borda);
+    border-radius:8px;
+    color:var(--terra2);
+    font-size:14px;
+  }
+
+  .menu a:hover,
+  .menu a:focus-visible,
+  .menu a[aria-current="page"]{
+    background:var(--creme);
+    border-color:var(--terra);
+  }
+
+  .apresentacao{
+    grid-template-columns:1fr;
+  }
+
+  .painel{
+    padding:24px;
+  }
+}
+
+@media(max-width:650px){
+
+  .container{
+    width:calc(100% - 28px);
+  }
+
+  .topo{
+    min-height:72px;
+    gap:8px;
+  }
+
+  .marca{
+    gap:8px;
+  }
+
+  .marca img{
+    width:47px;
+    height:47px;
+  }
+
+  .marca-texto strong{
+    font-size:17px;
+  }
+
+  .marca-texto small{
+    font-size:9px;
+  }
+
+  .trilha{
+    padding:14px 0;
+  }
+
+  .apresentacao{
+    gap:12px;
+  }
+
+  .capa,
+  .painel{
+    border-radius:10px;
+  }
+
+  .painel{
+    padding:20px;
+  }
+
+  .estado-agenda{
+    margin-top:17px;
+  }
+
+  .voltar{
+    margin-top:15px;
+  }
+
+  .lista{
+    grid-template-columns:1fr;
+  }
+
+  .eventos{
+    padding:22px 0 27px;
+  }
+
+  .rodape{
+    margin-top:24px;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+
+  html{
+    scroll-behavior:auto;
+  }
+
+  *,*::before,*::after{
+    transition:none!important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<a class="skip" href="#conteudo">
+  Ir para o conteúdo
+</a>
+
+<!-- CABEÇALHO -->
+
+<header class="cabecalho" id="inicio">
+
+  <div class="container topo">
+
+    <a
+      class="marca"
+      href="index.html"
+      aria-label="Voltar ao portal Marajoara III"
+    >
+
+      <img
+        src="assets/Logo-canto.png"
+        width="60"
+        height="60"
+        alt=""
+        decoding="async"
+      >
+
+      <span class="marca-texto">
+        <strong>Marajoara III</strong>
+        <small>Portal do edifício</small>
+      </span>
+
+    </a>
+
+    <button
+      class="hamburguer"
+      id="hamburguer"
+      type="button"
+      aria-label="Abrir menu"
+      aria-expanded="false"
+      aria-controls="menu-principal"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav
+      class="menu"
+      id="menu-principal"
+      aria-label="Navegação principal"
+    >
+
+      <a href="index.html">
+        Início
+      </a>
+
+      <a href="jornal.html">
+        Jornal Marajoara III
+      </a>
+
+      <a href="agenda.html" aria-current="page">
+        Agenda e Eventos
+      </a>
+
+      <a href="index.html#comunicados">
+        Comunicados
+      </a>
+
+      <a href="index.html#historia">
+        Nossa História
+      </a>
+
+    </nav>
+
+  </div>
+
+</header>
+
+<main id="conteudo">
+
+  <div class="container">
+
+    <!-- LOCALIZAÇÃO -->
+
+    <nav
+      class="trilha"
+      aria-label="Localização na página"
+    >
+
+      <a href="index.html">Início</a>
+
+      <span aria-hidden="true">›</span>
+
+      <span>Agenda e Eventos</span>
+
+    </nav>
+
+    <!-- APRESENTAÇÃO -->
+
+    <section
+      class="apresentacao"
+      aria-labelledby="titulo-agenda"
+    >
+
+      <!-- BANNER ORIGINAL 1920 X 1080 -->
+
+      <div class="capa">
+
+        <div
+          class="capa-fundo"
+          id="capa-fundo"
+        >
+          <strong>Agenda e Eventos</strong>
+          <small>Marajoara III</small>
+        </div>
+
+        <img
+          id="capa-agenda"
+          src="assets/banner-agenda-eventos.jpg"
+          width="1920"
+          height="1080"
+          alt="Banner da Agenda e Eventos do Edifício Marajoara III"
+          decoding="async"
+        >
+
+      </div>
+
+      <!-- PAINEL INFORMATIVO -->
+
+      <div class="painel">
+
+        <span class="rotulo">
+          Programação do edifício
+        </span>
+
+        <h1 id="titulo-agenda">
+          Nossa agenda
+        </h1>
+
+        <p>
+          Um espaço para acompanhar encontros,
+          reuniões e datas importantes da comunidade.
+        </p>
+
+        <div
+          class="estado-agenda"
+          role="status"
+          aria-live="polite"
+        >
+
+          <strong id="estado-titulo">
+            Ainda não há eventos publicados
+          </strong>
+
+          <p id="estado-descricao">
+            Quando houver datas confirmadas e
+            autorizadas para divulgação,
+            elas aparecerão nesta página.
+          </p>
+
+        </div>
+
+        <a
+          class="voltar"
+          href="index.html"
+        >
+          ← Voltar ao portal
+        </a>
+
+      </div>
+
+    </section>
+
+    <!-- ÁREA DOS EVENTOS -->
+
+    <section
+      id="area-eventos"
+      class="eventos"
+      hidden
+      aria-label="Eventos cadastrados"
+    >
+
+      <!-- PRÓXIMOS EVENTOS -->
+
+      <div
+        id="proximos-bloco"
+        hidden
+      >
+
+        <div class="titulo-secao">
+          <h2>Próximos eventos</h2>
+        </div>
+
+        <div
+          class="lista"
+          id="lista-proximos"
+        ></div>
+
+      </div>
+
+      <!-- EVENTOS ANTERIORES -->
+
+      <div
+        id="historico"
+        hidden
+      >
+
+        <div class="titulo-secao">
+          <h2>Eventos anteriores</h2>
+        </div>
+
+        <div
+          class="lista"
+          id="lista-anteriores"
+        ></div>
+
+      </div>
+
+    </section>
+
+  </div>
+
+</main>
+
+<!-- RODAPÉ -->
+
+<footer class="rodape">
+
+  <div class="container">
+
+    <span>
+      © <span id="ano">2026</span>
+      Marajoara III · Edifício Marajoara III
+    </span>
+
+    <span>
+      Comunicação e memória da nossa comunidade
+    </span>
+
+  </div>
+
+</footer>
+
+<script>
+'use strict';
+
+const $ = id => document.getElementById(id);
+
+$('ano').textContent = new Date().getFullYear();
+
+/* =====================================
+   MENU RESPONSIVO
+   ===================================== */
+
+const hamburguer = $('hamburguer');
+const menu = $('menu-principal');
+
+function abrirMenu(aberto){
+
+  menu.classList.toggle('aberto',aberto);
+
+  hamburguer.setAttribute(
+    'aria-expanded',
+    String(aberto)
+  );
+
+  hamburguer.setAttribute(
+    'aria-label',
+    aberto ? 'Fechar menu' : 'Abrir menu'
+  );
+}
+
+hamburguer.addEventListener('click',()=>{
+
+  abrirMenu(
+    hamburguer.getAttribute('aria-expanded')!=='true'
+  );
+
+});
+
+menu.querySelectorAll('a').forEach(link=>{
+
+  link.addEventListener('click',()=>{
+    abrirMenu(false);
+  });
+
+});
+
+document.addEventListener('click',e=>{
+
+  if(
+    !menu.contains(e.target) &&
+    !hamburguer.contains(e.target)
+  ){
+    abrirMenu(false);
+  }
+
+});
+
+document.addEventListener('keydown',e=>{
+
+  if(
+    e.key==='Escape' &&
+    hamburguer.getAttribute('aria-expanded')==='true'
+  ){
+    abrirMenu(false);
+    hamburguer.focus();
+  }
+
+});
+
+window.addEventListener('resize',()=>{
+
+  if(innerWidth>900){
+    abrirMenu(false);
+  }
+
+});
+
+/* =====================================
+   CARREGAMENTO DO BANNER
+   ===================================== */
+
+const capa = $('capa-agenda');
+
+function capaPronta(){
+
+  if(capa.naturalWidth){
+
+    capa.classList.add('pronta');
+
+    $('capa-fundo').hidden = true;
+
+  }
+
+}
+
+if(capa.complete){
+  capaPronta();
+}
+
+capa.addEventListener(
+  'load',
+  capaPronta,
+  {once:true}
+);
+
+capa.addEventListener(
+  'error',
+  ()=>{
+    capa.hidden=true;
+  },
+  {once:true}
+);
+
+/* =====================================
+   CADASTRO DE EVENTOS
+   ===================================== */
+
+/*
+   Quando houver eventos reais,
+   confirmados e autorizados pela
+   administração, cadastraremos aqui.
+
+   MODELO DE CADASTRO:
+
+   {
+     titulo:'Título do evento',
+     data:'2026-12-05',
+     horario:'19h',
+     local:'Salão de festas',
+     descricao:'Descrição confirmada.'
+   }
+
+   Esse exemplo está comentado
+   e NÃO aparece no site.
+*/
+
+const eventos = [
+
+];
+
+/* =====================================
+   FUNÇÕES DA AGENDA
+   ===================================== */
+
+function dataEvento(valor){
+
+  if(
+    typeof valor!=='string' ||
+    !/^\d{4}-\d{2}-\d{2}$/.test(valor)
+  ){
+    return null;
+  }
+
+  const [a,m,d] = valor.split('-').map(Number);
+
+  const data = new Date(a,m-1,d);
+
+  if(
+    data.getFullYear()!==a ||
+    data.getMonth()!==m-1 ||
+    data.getDate()!==d
+  ){
+    return null;
+  }
+
+  return data;
+}
+
+/* CRIA O CARTÃO DE UM EVENTO */
+
+function criarEvento(evento){
+
+  const card = document.createElement('article');
+  card.className = 'evento';
+
+  const dataBox = document.createElement('time');
+  dataBox.className = 'data-box';
+  dataBox.dateTime = evento.data;
+
+  const dia = document.createElement('b');
+
+  dia.textContent = String(
+    evento._data.getDate()
+  ).padStart(2,'0');
+
+  const mes = document.createElement('span');
+
+  mes.textContent = evento._data
+    .toLocaleDateString('pt-BR',{
+      month:'short',
+      year:'numeric'
+    })
+    .replace('.','');
+
+  dataBox.append(dia,mes);
+
+  const conteudo = document.createElement('div');
+
+  const titulo = document.createElement('h3');
+  titulo.textContent = evento.titulo;
+
+  conteudo.append(titulo);
+
+  if(evento.descricao){
+
+    const p = document.createElement('p');
+    p.textContent = evento.descricao;
+
+    conteudo.append(p);
+
+  }
+
+  const detalhes = [
+    evento.horario,
+    evento.local
+  ].filter(v=>
+    typeof v==='string' && v.trim()
+  );
+
+  if(detalhes.length){
+
+    const info = document.createElement('div');
+
+    info.className = 'dados';
+    info.textContent = detalhes.join(' · ');
+
+    conteudo.append(info);
+
+  }
+
+  card.append(dataBox,conteudo);
+
+  return card;
+}
+
+/* =====================================
+   ORGANIZAÇÃO AUTOMÁTICA POR DATA
+   ===================================== */
+
+const hoje = new Date();
+
+hoje.setHours(0,0,0,0);
+
+const validos = eventos
+
+  .filter(e=>
+    e &&
+    typeof e.titulo==='string' &&
+    e.titulo.trim()
+  )
+
+  .map(e=>({
+    ...e,
+    _data:dataEvento(e.data)
+  }))
+
+  .filter(e=>e._data);
+
+const proximos = validos
+
+  .filter(e=>e._data>=hoje)
+
+  .sort((a,b)=>a._data-b._data);
+
+const anteriores = validos
+
+  .filter(e=>e._data<hoje)
+
+  .sort((a,b)=>b._data-a._data);
+
+/* EXIBE OS EVENTOS QUANDO EXISTIREM */
+
+if(validos.length){
+
+  $('area-eventos').hidden=false;
+
+  $('estado-titulo').textContent =
+    proximos.length
+      ? 'Confira os próximos eventos'
+      : 'Nenhum próximo evento agendado';
+
+  $('estado-descricao').textContent =
+    proximos.length
+      ? 'Veja abaixo as datas cadastradas e confirmadas.'
+      : 'Os eventos anteriores estão disponíveis no arquivo abaixo.';
+
+  if(proximos.length){
+
+    $('proximos-bloco').hidden=false;
+
+    proximos.forEach(e=>{
+      $('lista-proximos').append(
+        criarEvento(e)
+      );
+    });
+
+  }
+
+  if(anteriores.length){
+
+    $('historico').hidden=false;
+
+    anteriores.forEach(e=>{
+      $('lista-anteriores').append(
+        criarEvento(e)
+      );
+    });
+
+  }
+
+}
+
+</script>
+
+</body>
+</html>
