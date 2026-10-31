@@ -1,0 +1,1123 @@
+
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#AA3716">
+<meta name="description" content="Comunicados e avisos publicados do Edifício Marajoara III.">
+<title>Comunicados | Marajoara III</title>
+
+<style>
+:root{
+  --terra:#AA3716;
+  --terra2:#7D2A13;
+  --creme:#F2E3C7;
+  --papel:#FBF7EF;
+  --branco:#FFFDF9;
+  --verde:#4D5F2D;
+  --floresta:#1E2F0F;
+  --texto:#2D180A;
+  --suave:#685646;
+  --borda:#E5D7BF;
+  --sombra:0 10px 28px #2D180A12;
+}
+
+*,*::before,*::after{
+  box-sizing:border-box;
+}
+
+[hidden]{
+  display:none!important;
+}
+
+html{
+  scroll-behavior:smooth;
+  scroll-padding-top:94px;
+}
+
+body{
+  display:flex;
+  flex-direction:column;
+  min-height:100svh;
+  margin:0;
+  background:var(--papel);
+  color:var(--texto);
+  font:16px/1.55 system-ui,-apple-system,
+    "Segoe UI",sans-serif;
+}
+
+main{
+  flex:1;
+}
+
+a{
+  color:inherit;
+}
+
+button{
+  font:inherit;
+  cursor:pointer;
+}
+
+a:focus-visible,
+button:focus-visible{
+  outline:3px solid var(--verde);
+  outline-offset:3px;
+}
+
+.container{
+  width:min(1200px,calc(100% - 36px));
+  margin-inline:auto;
+}
+
+.skip{
+  position:fixed;
+  top:-90px;
+  left:12px;
+  z-index:100;
+  padding:10px 15px;
+  border-radius:8px;
+  background:var(--floresta);
+  color:white;
+}
+
+.skip:focus{
+  top:10px;
+}
+
+/* =====================================
+   CABEÇALHO IGUAL AO DA AGENDA
+   ===================================== */
+
+.cabecalho{
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:var(--papel);
+  border-bottom:1px solid var(--borda);
+}
+
+.topo{
+  min-height:88px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  position:relative;
+}
+
+.marca{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  min-width:0;
+  text-decoration:none;
+}
+
+.marca img{
+  display:block;
+  width:60px;
+  height:60px;
+  object-fit:contain;
+  flex:none;
+}
+
+.marca-texto{
+  display:flex;
+  flex-direction:column;
+  line-height:1.15;
+}
+
+.marca-texto strong{
+  font:bold 22px Georgia,serif;
+}
+
+.marca-texto small{
+  margin-top:5px;
+  color:var(--verde);
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+
+/* NAVEGAÇÃO */
+
+.menu{
+  display:flex;
+  align-items:center;
+  gap:23px;
+}
+
+.menu a{
+  padding:9px 0;
+  border-bottom:2px solid transparent;
+  text-decoration:none;
+  font-size:13px;
+  font-weight:750;
+}
+
+.menu a:hover,
+.menu a[aria-current="page"]{
+  color:var(--terra);
+  border-color:var(--terra);
+}
+
+/* MENU HAMBÚRGUER */
+
+.hamburguer{
+  display:none;
+  width:45px;
+  height:45px;
+  flex:none;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  gap:5px;
+  background:var(--branco);
+  border:1px solid var(--borda);
+  border-radius:10px;
+}
+
+.hamburguer span{
+  display:block;
+  width:21px;
+  height:2px;
+  border-radius:3px;
+  background:var(--terra2);
+  transition:transform .2s,opacity .2s;
+}
+
+.hamburguer[aria-expanded="true"]
+span:first-child{
+  transform:translateY(7px) rotate(45deg);
+}
+
+.hamburguer[aria-expanded="true"]
+span:nth-child(2){
+  opacity:0;
+}
+
+.hamburguer[aria-expanded="true"]
+span:last-child{
+  transform:translateY(-7px) rotate(-45deg);
+}
+
+/* =====================================
+   APRESENTAÇÃO RESPONSIVA
+   ===================================== */
+
+.trilha{
+  display:flex;
+  gap:9px;
+  align-items:center;
+  flex-wrap:wrap;
+  padding:20px 0;
+  color:var(--suave);
+  font-size:13px;
+}
+
+.trilha a{
+  color:var(--terra2);
+  text-underline-offset:3px;
+}
+
+.apresentacao{
+  display:grid;
+  grid-template-columns:
+    minmax(0,1.55fr)
+    minmax(0,1fr);
+  gap:22px;
+  align-items:stretch;
+}
+
+/* BANNER 16:9 SEM CORTES */
+
+.capa{
+  position:relative;
+  aspect-ratio:16/9;
+  overflow:hidden;
+  min-width:0;
+  background:var(--creme);
+  border:1px solid var(--borda);
+  border-radius:14px;
+  box-shadow:var(--sombra);
+}
+
+.capa-fundo{
+  position:absolute;
+  inset:0;
+  display:grid;
+  place-content:center;
+  gap:8px;
+  padding:18px;
+  text-align:center;
+  background:linear-gradient(
+    130deg,
+    var(--creme),
+    #E2C6A1
+  );
+  color:var(--terra2);
+}
+
+.capa-fundo strong{
+  font:bold clamp(20px,3vw,39px)
+    Georgia,serif;
+}
+
+.capa-fundo small{
+  font-size:14px;
+}
+
+.capa img{
+  position:absolute;
+  inset:0;
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  opacity:0;
+}
+
+.capa img.pronta{
+  opacity:1;
+}
+
+/* =====================================
+   PAINEL INFORMATIVO
+   ===================================== */
+
+.painel{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  min-width:0;
+  padding:26px 28px;
+  background:var(--branco);
+  border:1px solid var(--borda);
+  border-radius:14px;
+  box-shadow:var(--sombra);
+}
+
+.rotulo{
+  display:block;
+  color:var(--verde);
+  font-size:11px;
+  font-weight:850;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+}
+
+h1,h2,h3{
+  font-family:Georgia,
+    "Times New Roman",serif;
+  line-height:1.18;
+  text-wrap:balance;
+}
+
+h1{
+  margin:9px 0 13px;
+  font-size:clamp(29px,3.3vw,42px);
+}
+
+.painel > p{
+  margin:0;
+  color:var(--suave);
+  font-size:15px;
+}
+
+/* MENSAGEM QUANDO NÃO HÁ COMUNICADOS */
+
+.estado{
+  margin-top:23px;
+  padding:15px 16px;
+  border-left:3px solid var(--verde);
+  border-radius:0 9px 9px 0;
+  background:#F3F0E5;
+}
+
+.estado strong{
+  display:block;
+  color:var(--floresta);
+  font-size:14px;
+  margin-bottom:5px;
+}
+
+.estado p{
+  margin:0;
+  color:var(--suave);
+  font-size:13px;
+  line-height:1.5;
+}
+
+.voltar{
+  display:inline-flex;
+  align-self:start;
+  margin-top:22px;
+  color:var(--terra2);
+  font-size:13px;
+  font-weight:800;
+  text-underline-offset:4px;
+}
+
+/* =====================================
+   PUBLICAÇÕES FUTURAS
+   ===================================== */
+
+.publicacoes{
+  padding:30px 0 42px;
+}
+
+.titulo-secao{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  margin:0 0 18px;
+}
+
+.titulo-secao h2{
+  margin:0;
+  font-size:clamp(23px,3vw,31px);
+}
+
+.titulo-secao::after{
+  content:"";
+  height:1px;
+  flex:1;
+  background:var(--borda);
+}
+
+.lista{
+  display:grid;
+  grid-template-columns:
+    repeat(2,minmax(0,1fr));
+  gap:15px;
+}
+
+.comunicado{
+  min-width:0;
+  padding:20px;
+  background:var(--branco);
+  border:1px solid var(--borda);
+  border-radius:13px;
+}
+
+.etiqueta{
+  display:inline-block;
+  padding:4px 11px;
+  border-radius:30px;
+  background:#EAECD9;
+  color:var(--verde);
+  font-size:11px;
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:.04em;
+}
+
+.comunicado time{
+  display:block;
+  margin-top:11px;
+  font-size:12px;
+  color:var(--suave);
+}
+
+.comunicado h3{
+  margin:11px 0 9px;
+  font-size:clamp(20px,2vw,24px);
+}
+
+.comunicado p{
+  margin:0;
+  color:var(--suave);
+  font-size:14px;
+  white-space:pre-line;
+  overflow-wrap:anywhere;
+}
+
+/* =====================================
+   RODAPÉ
+   ===================================== */
+
+.rodape{
+  margin-top:35px;
+  padding:19px 0;
+  background:var(--terra2);
+  color:#F5E8D5;
+  font-size:13px;
+}
+
+.rodape .container{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+/* =====================================
+   TABLET E CELULAR
+   ===================================== */
+
+@media(max-width:900px){
+
+  .topo{
+    min-height:78px;
+  }
+
+  .marca img{
+    width:54px;
+    height:54px;
+  }
+
+  .marca-texto strong{
+    font-size:19px;
+  }
+
+  .hamburguer{
+    display:flex;
+  }
+
+  .menu{
+    display:none;
+    position:absolute;
+    top:100%;
+    right:0;
+    z-index:60;
+    width:max-content;
+    max-width:calc(100vw - 28px);
+    max-height:calc(100dvh - 85px);
+    overflow-y:auto;
+    flex-direction:column;
+    align-items:stretch;
+    gap:5px;
+    padding:7px;
+    background:var(--papel);
+    border:1px solid var(--borda);
+    border-radius:0 0 12px 12px;
+    box-shadow:var(--sombra);
+  }
+
+  .menu.aberto{
+    display:flex;
+  }
+
+  .menu a{
+    display:flex;
+    align-items:center;
+    min-height:39px;
+    padding:9px 12px;
+    white-space:nowrap;
+    line-height:1.25;
+    background:var(--branco);
+    border:1px solid var(--borda);
+    border-radius:8px;
+    color:var(--terra2);
+    font-size:14px;
+  }
+
+  .menu a:hover,
+  .menu a:focus-visible,
+  .menu a[aria-current="page"]{
+    background:var(--creme);
+    border-color:var(--terra);
+  }
+
+  .apresentacao{
+    grid-template-columns:1fr;
+  }
+
+  .painel{
+    padding:24px;
+  }
+}
+
+/* TELAS PEQUENAS */
+
+@media(max-width:650px){
+
+  .container{
+    width:calc(100% - 28px);
+  }
+
+  .topo{
+    min-height:72px;
+    gap:8px;
+  }
+
+  .marca{
+    gap:8px;
+  }
+
+  .marca img{
+    width:47px;
+    height:47px;
+  }
+
+  .marca-texto strong{
+    font-size:17px;
+  }
+
+  .marca-texto small{
+    font-size:9px;
+  }
+
+  .trilha{
+    padding:14px 0;
+  }
+
+  .apresentacao{
+    gap:12px;
+  }
+
+  .capa,.painel{
+    border-radius:10px;
+  }
+
+  .painel{
+    padding:20px;
+  }
+
+  .estado{
+    margin-top:17px;
+  }
+
+  .voltar{
+    margin-top:15px;
+  }
+
+  .lista{
+    grid-template-columns:1fr;
+  }
+
+  .publicacoes{
+    padding:22px 0 27px;
+  }
+
+  .rodape{
+    margin-top:24px;
+  }
+}
+
+/* ACESSIBILIDADE */
+
+@media(prefers-reduced-motion:reduce){
+
+  html{
+    scroll-behavior:auto;
+  }
+
+  *,*::before,*::after{
+    transition:none!important;
+  }
+
+}
+</style>
+</head>
+
+<body>
+
+<a class="skip" href="#conteudo">
+  Ir para o conteúdo
+</a>
+
+<!-- CABEÇALHO -->
+
+<header class="cabecalho">
+
+  <div class="container topo">
+
+    <a
+      class="marca"
+      href="index.html"
+      aria-label="Voltar ao portal Marajoara III"
+    >
+
+      <img
+        src="assets/Logo-canto.png"
+        width="60"
+        height="60"
+        alt=""
+        decoding="async"
+      >
+
+      <span class="marca-texto">
+        <strong>Marajoara III</strong>
+        <small>Portal do edifício</small>
+      </span>
+
+    </a>
+
+    <button
+      class="hamburguer"
+      id="hamburguer"
+      type="button"
+      aria-label="Abrir menu"
+      aria-controls="menu-principal"
+      aria-expanded="false"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav
+      class="menu"
+      id="menu-principal"
+      aria-label="Navegação principal"
+    >
+
+      <a href="index.html">
+        Início
+      </a>
+
+      <a href="jornal.html">
+        Jornal Marajoara III
+      </a>
+
+      <a href="agenda.html">
+        Agenda e Eventos
+      </a>
+
+      <a
+        href="comunicados.html"
+        aria-current="page"
+      >
+        Comunicados
+      </a>
+
+      <a href="index.html#historia">
+        Nossa História
+      </a>
+
+    </nav>
+
+  </div>
+
+</header>
+
+<main id="conteudo">
+
+  <div class="container">
+
+    <!-- LOCALIZAÇÃO -->
+
+    <nav
+      class="trilha"
+      aria-label="Localização na página"
+    >
+
+      <a href="index.html">
+        Início
+      </a>
+
+      <span aria-hidden="true">›</span>
+
+      <span>Comunicados</span>
+
+    </nav>
+
+    <!-- BANNER E INFORMAÇÕES -->
+
+    <section
+      class="apresentacao"
+      aria-labelledby="titulo-comunicados"
+    >
+
+      <div class="capa">
+
+        <div
+          class="capa-fundo"
+          id="capa-fundo"
+        >
+
+          <strong>Comunicados</strong>
+          <small>Edifício Marajoara III</small>
+
+        </div>
+
+        <img
+          id="capa-comunicados"
+          src="assets/banner-comunicados.jpg"
+          width="1920"
+          height="1080"
+          alt="Banner de Comunicados do Edifício Marajoara III"
+          decoding="async"
+        >
+
+      </div>
+
+      <!-- PAINEL INFORMATIVO -->
+
+      <div class="painel">
+
+        <span class="rotulo">
+          Informações da comunidade
+        </span>
+
+        <h1 id="titulo-comunicados">
+          Avisos e comunicados
+        </h1>
+
+        <p>
+          Um espaço para consultar orientações,
+          avisos e informações importantes
+          do edifício.
+        </p>
+
+        <div
+          class="estado"
+          role="status"
+          aria-live="polite"
+        >
+
+          <strong id="estado-titulo">
+            Nenhum comunicado publicado neste portal
+          </strong>
+
+          <p id="estado-texto">
+            Quando houver avisos confirmados
+            e autorizados para divulgação,
+            eles aparecerão nesta página.
+          </p>
+
+        </div>
+
+        <a class="voltar" href="index.html">
+          ← Voltar ao portal
+        </a>
+
+      </div>
+
+    </section>
+
+    <!-- COMUNICADOS FUTUROS -->
+
+    <section
+      id="secao-publicacoes"
+      class="publicacoes"
+      hidden
+      aria-labelledby="titulo-publicacoes"
+    >
+
+      <div class="titulo-secao">
+
+        <h2 id="titulo-publicacoes">
+          Comunicados publicados
+        </h2>
+
+      </div>
+
+      <div
+        id="lista-comunicados"
+        class="lista"
+      ></div>
+
+    </section>
+
+  </div>
+
+</main>
+
+<!-- RODAPÉ -->
+
+<footer class="rodape">
+
+  <div class="container">
+
+    <span>
+      © <span id="ano">2026</span>
+      Marajoara III · Edifício Marajoara III
+    </span>
+
+    <span>
+      Comunicação e memória da nossa comunidade
+    </span>
+
+  </div>
+
+</footer>
+
+<script>
+'use strict';
+
+const $ = id => document.getElementById(id);
+
+$('ano').textContent = new Date().getFullYear();
+
+/* =====================================
+   MENU RESPONSIVO
+   ===================================== */
+
+const hamburguer = $('hamburguer');
+const menu = $('menu-principal');
+
+function abrirMenu(aberto){
+
+  menu.classList.toggle('aberto',aberto);
+
+  hamburguer.setAttribute(
+    'aria-expanded',
+    String(aberto)
+  );
+
+  hamburguer.setAttribute(
+    'aria-label',
+    aberto?'Fechar menu':'Abrir menu'
+  );
+
+}
+
+hamburguer.addEventListener('click',()=>{
+
+  abrirMenu(
+    hamburguer.getAttribute('aria-expanded')!=='true'
+  );
+
+});
+
+menu.querySelectorAll('a').forEach(a=>{
+
+  a.addEventListener('click',()=>{
+    abrirMenu(false);
+  });
+
+});
+
+document.addEventListener('click',e=>{
+
+  if(
+    !menu.contains(e.target) &&
+    !hamburguer.contains(e.target)
+  ){
+    abrirMenu(false);
+  }
+
+});
+
+document.addEventListener('keydown',e=>{
+
+  if(
+    e.key==='Escape' &&
+    hamburguer.getAttribute('aria-expanded')==='true'
+  ){
+    abrirMenu(false);
+    hamburguer.focus();
+  }
+
+});
+
+window.addEventListener('resize',()=>{
+
+  if(window.innerWidth>900){
+    abrirMenu(false);
+  }
+
+});
+
+/* =====================================
+   CARREGAMENTO DO BANNER
+   ===================================== */
+
+const capa = $('capa-comunicados');
+const capaFundo = $('capa-fundo');
+
+function mostrarCapa(){
+
+  if(capa.naturalWidth>0){
+
+    capa.classList.add('pronta');
+
+    capaFundo.hidden=true;
+
+  }
+
+}
+
+if(capa.complete){
+  mostrarCapa();
+}
+
+capa.addEventListener(
+  'load',
+  mostrarCapa,
+  {once:true}
+);
+
+capa.addEventListener(
+  'error',
+  ()=>{
+    capa.hidden=true;
+  },
+  {once:true}
+);
+
+/* =====================================
+   CADASTRO DE COMUNICADOS
+   ===================================== */
+
+/*
+  ADICIONE SOMENTE AVISOS REAIS E
+  AUTORIZADOS PARA DIVULGAÇÃO.
+
+  EXEMPLO DE FORMATO (NÃO PUBLICADO):
+
+  {
+    titulo:'Aviso aos moradores',
+    data:'2026-11-05',
+    categoria:'Manutenção',
+    texto:'Informação confirmada pela administração.'
+  }
+
+  Esse exemplo está comentado
+  e NÃO aparece na página.
+*/
+
+const comunicados = [
+
+];
+
+/* =====================================
+   FUNÇÕES DOS COMUNICADOS
+   ===================================== */
+
+function dataValida(valor){
+
+  if(
+    typeof valor!=='string' ||
+    !/^\d{4}-\d{2}-\d{2}$/.test(valor)
+  ){
+    return null;
+  }
+
+  const [ano,mes,dia] = valor
+    .split('-')
+    .map(Number);
+
+  const data = new Date(ano,mes-1,dia);
+
+  return (
+    data.getFullYear()===ano &&
+    data.getMonth()===mes-1 &&
+    data.getDate()===dia
+  ) ? data : null;
+
+}
+
+function criarElemento(tag,classe,conteudo){
+
+  const el = document.createElement(tag);
+
+  if(classe){
+    el.className=classe;
+  }
+
+  if(conteudo!==undefined){
+    el.textContent=String(conteudo);
+  }
+
+  return el;
+
+}
+
+/* CRIA UM CARTÃO DE COMUNICADO */
+
+function criarComunicado(aviso){
+
+  const artigo=criarElemento(
+    'article','comunicado'
+  );
+
+  artigo.append(
+    criarElemento(
+      'span',
+      'etiqueta',
+      aviso.categoria||'Aviso geral'
+    )
+  );
+
+  const tempo=criarElemento(
+    'time',
+    '',
+    aviso._data.toLocaleDateString(
+      'pt-BR',
+      {
+        day:'2-digit',
+        month:'long',
+        year:'numeric'
+      }
+    )
+  );
+
+  tempo.dateTime=aviso.data;
+
+  artigo.append(tempo);
+
+  artigo.append(
+    criarElemento(
+      'h3',
+      '',
+      aviso.titulo
+    )
+  );
+
+  artigo.append(
+    criarElemento(
+      'p',
+      '',
+      aviso.texto
+    )
+  );
+
+  return artigo;
+
+}
+
+/* =====================================
+   ORGANIZAÇÃO AUTOMÁTICA
+   ===================================== */
+
+const validos=comunicados
+
+  .filter(x=>
+    x &&
+    typeof x.titulo==='string' &&
+    x.titulo.trim() &&
+    typeof x.texto==='string' &&
+    x.texto.trim()
+  )
+
+  .map(x=>({
+    ...x,
+    _data:dataValida(x.data)
+  }))
+
+  .filter(x=>x._data)
+
+  .sort((a,b)=>b._data-a._data);
+
+/* MOSTRA OS COMUNICADOS QUANDO EXISTIREM */
+
+if(validos.length){
+
+  $('estado-titulo').textContent=
+    'Comunicados disponíveis';
+
+  $('estado-texto').textContent=
+    'Consulte abaixo os avisos publicados e suas respectivas datas.';
+
+  $('secao-publicacoes').hidden=false;
+
+  validos.forEach(aviso=>{
+
+    $('lista-comunicados').append(
+      criarComunicado(aviso)
+    );
+
+  });
+
+}
+
+</script>
+
+</body>
+</html>
