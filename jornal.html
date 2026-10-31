@@ -2178,6 +2178,79 @@ $('category').addEventListener('change',e=>{
 
 })();
 
+ 
+/* PESQUISA VISÍVEL NA PÁGINA DO JORNAL */
+
+const buscaRapida = document.createElement('form');
+
+buscaRapida.className = 'filters';
+buscaRapida.setAttribute('role', 'search');
+
+buscaRapida.innerHTML = `
+  <h3>Pesquisar matérias</h3>
+
+  <div class="field">
+    <label for="busca-rapida">
+      O que você procura?
+    </label>
+
+    <input
+      type="search"
+      id="busca-rapida"
+      placeholder="Ex.: portão, pintura, iluminação..."
+      autocomplete="off"
+    >
+  </div>
+
+  <button
+    type="submit"
+    class="more"
+    style="margin-top:12px"
+  >
+    🔎 Pesquisar
+  </button>
+`;
+
+/* MOSTRA A BUSCA ANTES DAS MATÉRIAS */
+
+$('filters').before(buscaRapida);
+
+/* PESQUISA EM TODAS AS MATÉRIAS */
+
+buscaRapida.addEventListener('submit', e => {
+
+  e.preventDefault();
+
+  const termo = buscaRapida
+    .querySelector('input')
+    .value.trim();
+
+  state.search = termo;
+
+  $('search').value = termo;
+
+  state.allArticles = true;
+
+  renderArticles();
+
+  buscaRapida.hidden = true;
+
+  $('filters').scrollIntoView({
+    behavior: 'smooth',
+    block: 'start'
+  });
+
+});
+
+/* SINCRONIZA COM VER TODAS AS MATÉRIAS */
+
+$('more-articles').addEventListener('click', () => {
+
+  buscaRapida.hidden = state.allArticles;
+
+});
+
+
 </script>
 
 </body>
