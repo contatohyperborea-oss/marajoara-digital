@@ -9,742 +9,820 @@
 <title>Marajoara III | Portal do Edifício</title>
 
 <style>
-:root{
-  --terra:#AA3716;
-  --terra2:#7D2A13;
-  --creme:#F2E3C7;
-  --papel:#FBF7EF;
-  --verde:#4D5F2D;
-  --floresta:#1E2F0F;
-  --texto:#2D180A;
-  --suave:#685646;
-  --borda:#E5D7BF;
-  --sombra:0 10px 26px #2D180A14;
+/* =====================================
+   MARAJOARA III — IDENTIDADE VISUAL
+   ===================================== */
+
+:root {
+  --terra: #AA3716;
+  --terra2: #7D2A13;
+  --creme: #F2E3C7;
+  --papel: #FBF7EF;
+  --verde: #4D5F2D;
+  --floresta: #1E2F0F;
+  --texto: #2D180A;
+  --suave: #685646;
+  --borda: #E5D7BF;
+  --sombra: 0 10px 26px #2D180A14;
 }
 
-*,*::before,*::after{
-  box-sizing:border-box;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-html{
-  scroll-behavior:smooth;
-  scroll-padding-top:92px;
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 92px;
 }
 
-body{
-  margin:0;
-  background:var(--papel);
-  color:var(--texto);
-  font:16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif;
+body {
+  margin: 0;
+  background: var(--papel);
+  color: var(--texto);
+  font: 16px/1.5 system-ui,
+    -apple-system, "Segoe UI", sans-serif;
 }
 
-a{color:inherit}
-button{font:inherit;cursor:pointer}
+a {
+  color: inherit;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
 
 a:focus-visible,
-button:focus-visible{
-  outline:3px solid var(--verde);
-  outline-offset:3px;
+button:focus-visible {
+  outline: 3px solid var(--verde);
+  outline-offset: 3px;
 }
 
-[hidden]{display:none!important}
-
-.container{
-  width:min(1120px,calc(100% - 30px));
-  margin-inline:auto;
+[hidden] {
+  display: none !important;
 }
 
-.sr-only{
-  position:absolute;
-  width:1px;
-  height:1px;
-  overflow:hidden;
-  clip-path:inset(50%);
-  white-space:nowrap;
+.container {
+  width: min(1120px, calc(100% - 30px));
+  margin-inline: auto;
 }
 
-.skip{
-  position:fixed;
-  top:-90px;
-  left:12px;
-  z-index:999;
-  padding:9px 14px;
-  background:var(--floresta);
-  color:white;
-  border-radius:8px;
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
 }
 
-.skip:focus{top:10px}
-
-/* CABEÇALHO */
-
-.cabecalho{
-  position:sticky;
-  top:0;
-  z-index:50;
-  background:var(--papel);
-  border-bottom:1px solid var(--borda);
+.skip {
+  position: fixed;
+  top: -90px;
+  left: 12px;
+  z-index: 999;
+  padding: 9px 14px;
+  background: var(--floresta);
+  color: white;
+  border-radius: 8px;
 }
 
-.topo{
-  min-height:78px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
-  position:relative;
+.skip:focus {
+  top: 10px;
 }
 
-.marca{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  min-width:0;
-  text-decoration:none;
+/* =====================================
+   CABEÇALHO
+   ===================================== */
+
+.cabecalho {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--papel);
+  border-bottom: 1px solid var(--borda);
 }
 
-.marca img{
-  width:54px;
-  height:54px;
-  object-fit:contain;
-  flex:none;
+.topo {
+  min-height: 78px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  position: relative;
 }
 
-.marca-texto{
-  display:flex;
-  flex-direction:column;
-  line-height:1.15;
+.marca {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  text-decoration: none;
 }
 
-.marca-texto strong{
-  font:bold 19px Georgia,serif;
+.marca img {
+  width: 54px;
+  height: 54px;
+  object-fit: contain;
+  flex: none;
 }
 
-.marca-texto small{
-  margin-top:5px;
-  color:var(--verde);
-  font-size:10px;
-  font-weight:800;
-  letter-spacing:.08em;
-  text-transform:uppercase;
+.marca-texto {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
 }
 
-.menu{
-  display:flex;
-  align-items:center;
-  gap:19px;
+.marca-texto strong {
+  font: bold 19px Georgia, serif;
 }
 
-.menu a{
-  text-decoration:none;
-  font-size:13px;
-  font-weight:750;
+.marca-texto small {
+  margin-top: 5px;
+  color: var(--verde);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
 }
 
-.menu a:hover{
-  color:var(--terra);
+/* =====================================
+   MENU SUPERIOR
+   ===================================== */
+
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 19px;
+}
+
+.menu a {
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 750;
+}
+
+.menu a:hover {
+  color: var(--terra);
 }
 
 /* MENU HAMBÚRGUER */
 
-.hamburguer{
-  display:none;
-  align-items:center;
-  justify-content:center;
-  flex-direction:column;
-  gap:5px;
-  width:45px;
-  height:45px;
-  flex:none;
-  border:1px solid var(--borda);
-  border-radius:10px;
-  background:#FFFDF9;
+.hamburguer {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+  width: 45px;
+  height: 45px;
+  flex: none;
+  border: 1px solid var(--borda);
+  border-radius: 10px;
+  background: #FFFDF9;
 }
 
-.hamburguer span{
-  display:block;
-  width:21px;
-  height:2px;
-  border-radius:3px;
-  background:var(--terra2);
-  transition:transform .2s,opacity .2s;
+.hamburguer span {
+  display: block;
+  width: 21px;
+  height: 2px;
+  border-radius: 3px;
+  background: var(--terra2);
+  transition: transform .2s, opacity .2s;
 }
 
-.hamburguer[aria-expanded=true] span:first-child{
-  transform:translateY(7px) rotate(45deg);
+.hamburguer[aria-expanded=true]
+span:first-child {
+  transform: translateY(7px) rotate(45deg);
 }
 
-.hamburguer[aria-expanded=true] span:nth-child(2){
-  opacity:0;
+.hamburguer[aria-expanded=true]
+span:nth-child(2) {
+  opacity: 0;
 }
 
-.hamburguer[aria-expanded=true] span:last-child{
-  transform:translateY(-7px) rotate(-45deg);
+.hamburguer[aria-expanded=true]
+span:last-child {
+  transform: translateY(-7px) rotate(-45deg);
 }
 
-/* BANNERS 16:9, SEM RECORTES */
+/* =====================================
+   BANNERS 16:9 — SEM CORTES
+   ===================================== */
 
 .video-box,
-.imagem-box{
-  position:relative;
-  display:block;
-  width:100%;
-  aspect-ratio:16/9;
-  overflow:hidden;
-  background:#E9DAC1;
-  border-radius:12px;
+.imagem-box {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #E9DAC1;
+  border-radius: 12px;
 }
 
-.video-box{
-  background:var(--floresta);
+/* VÍDEO PRINCIPAL */
+
+.video-box {
+  background: var(--floresta);
 }
 
-.video-fundo{
-  position:absolute;
-  inset:0;
-  display:grid;
-  place-content:center;
-  justify-items:center;
-  gap:7px;
-  padding:14px;
-  color:var(--creme);
-  background:linear-gradient(
+.video-fundo {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 7px;
+  padding: 14px;
+  color: var(--creme);
+  background: linear-gradient(
     125deg,
     #50653B,
     var(--floresta) 70%,
     var(--terra)
   );
-  text-align:center;
+  text-align: center;
 }
 
-.video-fundo img{
-  display:block;
-  width:clamp(48px,10vw,105px);
-  height:auto;
-  aspect-ratio:1;
-  object-fit:contain;
+.video-fundo img {
+  display: block;
+  width: clamp(48px, 10vw, 105px);
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: contain;
 }
 
-.video-fundo strong{
-  font:bold clamp(16px,3.2vw,32px) Georgia,serif;
+.video-fundo strong {
+  font: bold clamp(16px, 3.2vw, 32px)
+    Georgia, serif;
 }
 
-.video-box video{
-  position:absolute;
-  inset:0;
-  width:100%;
-  height:100%;
-  object-fit:contain;
-  opacity:0;
-  background:var(--floresta);
+.video-box video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0;
+  background: var(--floresta);
 }
 
-.video-box video.pronto{
-  opacity:1;
+.video-box video.pronto {
+  opacity: 1;
 }
 
 /* CONTROLE DISCRETO DO VÍDEO */
 
-.video-acao{
-  display:flex;
-  justify-content:flex-end;
-  margin-top:3px;
-  min-height:19px;
+.video-acao {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 3px;
+  min-height: 19px;
 }
 
-.video-acao button{
-  padding:1px 3px;
-  background:none;
-  border:0;
-  color:var(--suave);
-  font-size:11px;
-  opacity:.65;
+.video-acao button {
+  padding: 1px 3px;
+  background: none;
+  border: 0;
+  color: var(--suave);
+  font-size: 11px;
+  opacity: .65;
 }
 
 .video-acao button:hover,
-.video-acao button:focus-visible{
-  opacity:1;
-  text-decoration:underline;
+.video-acao button:focus-visible {
+  opacity: 1;
+  text-decoration: underline;
 }
 
-/* JORNAL */
+/* =====================================
+   BANNER DO JORNAL
+   ===================================== */
 
-.conteudo{
-  padding:12px 0 25px;
+.conteudo {
+  padding: 12px 0 25px;
 }
 
-.jornal-link{
-  display:block;
-  text-decoration:none;
-  border-radius:12px;
-  box-shadow:var(--sombra);
-  transition:transform .2s,box-shadow .2s;
+.jornal-link {
+  display: block;
+  text-decoration: none;
+  border-radius: 12px;
+  box-shadow: var(--sombra);
+  transition: transform .2s, box-shadow .2s;
 }
 
-.jornal-link:hover{
-  transform:translateY(-2px);
-  box-shadow:0 14px 30px #2D180A22;
+.jornal-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px #2D180A22;
 }
 
-.imagem-box{
-  border:1px solid #D8C8B1;
+.imagem-box {
+  border: 1px solid #D8C8B1;
 }
 
-.imagem-box img{
-  position:absolute;
-  inset:0;
-  display:block;
-  width:100%;
-  height:100%;
-  object-fit:contain;
-  opacity:0;
+.imagem-box img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0;
 }
 
-.imagem-box img.carregada{
-  opacity:1;
+.imagem-box img.carregada {
+  opacity: 1;
 }
 
-.imagem-fundo{
-  position:absolute;
-  inset:0;
-  display:grid;
-  place-content:center;
-  gap:8px;
-  padding:15px;
-  background:linear-gradient(
+.imagem-fundo {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  gap: 8px;
+  padding: 15px;
+  background: linear-gradient(
     130deg,
     #F2E3C7,
     #E3C9A3
   );
-  color:var(--terra2);
-  text-align:center;
+  color: var(--terra2);
+  text-align: center;
 }
 
-.imagem-fundo strong{
-  font:bold clamp(19px,3vw,34px)/1.2 Georgia,serif;
+.imagem-fundo strong {
+  font: bold clamp(19px, 3vw, 34px)/1.2
+    Georgia, serif;
 }
 
-.imagem-fundo small{
-  font-size:clamp(11px,1.5vw,15px);
+.imagem-fundo small {
+  font-size: clamp(11px, 1.5vw, 15px);
 }
 
-.link-discreto{
-  display:block;
-  margin:7px 2px 0;
-  text-align:right;
-  color:var(--terra2);
-  font-size:13px;
-  font-weight:750;
-  text-decoration:none;
+.link-discreto {
+  display: block;
+  margin: 7px 2px 0;
+  text-align: right;
+  color: var(--terra2);
+  font-size: 13px;
+  font-weight: 750;
+  text-decoration: none;
 }
 
-.link-discreto:hover{
-  text-decoration:underline;
+.link-discreto:hover {
+  text-decoration: underline;
 }
 
-/* AGENDA E COMUNICADOS */
+/* =====================================
+   AGENDA E COMUNICADOS
+   ===================================== */
 
-.secao-titulo{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  margin:22px 0 12px;
+.secao-titulo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 22px 0 12px;
 }
 
-.secao-titulo h2{
-  margin:0;
-  font:bold clamp(22px,3vw,29px) Georgia,serif;
-  line-height:1.2;
+.secao-titulo h2 {
+  margin: 0;
+  font: bold clamp(22px, 3vw, 29px)
+    Georgia, serif;
+  line-height: 1.2;
 }
 
-.secao-titulo::after{
-  content:"";
-  height:1px;
-  background:var(--borda);
-  flex:1;
+.secao-titulo::after {
+  content: "";
+  height: 1px;
+  background: var(--borda);
+  flex: 1;
 }
 
-.grade{
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:16px;
+.grade {
+  display: grid;
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+  gap: 16px;
 }
 
-.tile{
-  min-width:0;
-  overflow:hidden;
-  background:#FFFDF9;
-  border:1px solid var(--borda);
-  border-radius:12px;
+/* CARTÕES AGORA CLICÁVEIS */
+
+.tile {
+  display: block;
+  min-width: 0;
+  overflow: hidden;
+  background: #FFFDF9;
+  border: 1px solid var(--borda);
+  border-radius: 12px;
+  color: inherit;
+  text-decoration: none;
+  transition:
+    transform .2s,
+    box-shadow .2s,
+    border-color .2s;
 }
 
-.tile .imagem-box{
-  border:0;
-  border-radius:0;
+.tile:hover {
+  transform: translateY(-2px);
+  border-color: #C8A78C;
+  box-shadow: var(--sombra);
 }
 
-.tile .imagem-fundo strong{
-  font-size:clamp(18px,2.2vw,29px);
+.tile .imagem-box {
+  border: 0;
+  border-radius: 0;
 }
 
-.tile-legenda{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:9px;
-  flex-wrap:wrap;
-  padding:11px 14px;
-  font-size:13px;
+.tile .imagem-fundo strong {
+  font-size: clamp(18px, 2.2vw, 29px);
 }
 
-.tile-legenda strong{
-  font-weight:800;
+.tile-legenda {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 9px;
+  flex-wrap: wrap;
+  padding: 11px 14px;
+  font-size: 13px;
 }
 
-.estado{
-  color:var(--verde);
-  font-size:11px;
-  font-weight:750;
+.tile-legenda strong {
+  font-weight: 800;
 }
 
-/* NOSSA HISTÓRIA */
-
-.historia{
-  margin:14px 0 25px;
-  padding:17px 19px;
-  border:1px solid var(--borda);
-  border-radius:12px;
-  background:#F4EBD9;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  flex-wrap:wrap;
-  gap:6px 14px;
+.estado {
+  color: var(--terra2);
+  font-size: 12px;
+  font-weight: 800;
 }
 
-.historia h2{
-  margin:0;
-  font:bold clamp(19px,2.4vw,25px) Georgia,serif;
+.tile:hover .estado {
+  text-decoration: underline;
 }
 
-.historia p{
-  margin:0;
-  color:var(--suave);
-  font-size:13px;
+/* =====================================
+   NOSSA HISTÓRIA
+   ===================================== */
+
+.historia {
+  margin: 14px 0 25px;
+  padding: 17px 19px;
+  border: 1px solid var(--borda);
+  border-radius: 12px;
+  background: #F4EBD9;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 6px 14px;
 }
 
-footer{
-  background:var(--terra2);
-  color:#F5E8D5;
-  text-align:center;
-  padding:15px;
-  font-size:12px;
+.historia h2 {
+  margin: 0;
+  font: bold clamp(19px, 2.4vw, 25px)
+    Georgia, serif;
 }
 
-/* MENU MOBILE COMPACTO */
+.historia p {
+  margin: 0;
+  color: var(--suave);
+  font-size: 13px;
+}
 
-@media(max-width:900px){
+/* =====================================
+   RODAPÉ
+   ===================================== */
 
-  .hamburguer{
-    display:flex;
+footer {
+  background: var(--terra2);
+  color: #F5E8D5;
+  text-align: center;
+  padding: 15px;
+  font-size: 12px;
+}
+
+/* =====================================
+   MENU MOBILE — ATÉ 900 PIXELS
+   ===================================== */
+
+@media(max-width:900px) {
+
+  .hamburguer {
+    display: flex;
   }
 
-  .menu{
-    display:none;
-    position:absolute;
-    z-index:60;
-    top:100%;
-    right:0;
-    width:max-content;
-    max-width:calc(100vw - 28px);
-    max-height:calc(100dvh - 85px);
-    overflow-y:auto;
-    flex-direction:column;
-    align-items:stretch;
-    gap:5px;
-    padding:7px;
-    background:var(--papel);
-    border:1px solid var(--borda);
-    border-radius:0 0 12px 12px;
-    box-shadow:var(--sombra);
+  .menu {
+    display: none;
+    position: absolute;
+    z-index: 60;
+    top: 100%;
+    right: 0;
+    width: max-content;
+    max-width: calc(100vw - 28px);
+    max-height: calc(100dvh - 85px);
+    overflow-y: auto;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 5px;
+    padding: 7px;
+    background: var(--papel);
+    border: 1px solid var(--borda);
+    border-radius: 0 0 12px 12px;
+    box-shadow: var(--sombra);
   }
 
-  .menu.aberto{
-    display:flex;
+  .menu.aberto {
+    display: flex;
   }
 
-  .menu a{
-    display:flex;
-    align-items:center;
-    min-height:39px;
-    padding:9px 12px;
-    white-space:nowrap;
-    line-height:1.25;
-    border:1px solid var(--borda);
-    border-radius:8px;
-    background:#FFFDF9;
-    color:var(--terra2);
-    font-size:14px;
+  .menu a {
+    display: flex;
+    align-items: center;
+    min-height: 39px;
+    padding: 9px 12px;
+    white-space: nowrap;
+    line-height: 1.25;
+    border: 1px solid var(--borda);
+    border-radius: 8px;
+    background: #FFFDF9;
+    color: var(--terra2);
+    font-size: 14px;
   }
 
   .menu a:hover,
-  .menu a:focus-visible{
-    background:var(--creme);
-    border-color:var(--terra);
-  }
-}
-
-/* CELULARES */
-
-@media(max-width:650px){
-
-  .grade{
-    grid-template-columns:1fr;
-    gap:12px;
-  }
-
-  .secao-titulo{
-    margin-top:19px;
-  }
-}
-
-@media(max-width:500px){
-
-  .container{
-    width:calc(100% - 28px);
-  }
-
-  .topo{
-    min-height:72px;
-    gap:8px;
-  }
-
-  .marca{
-    gap:8px;
-  }
-
-  .marca img{
-    width:47px;
-    height:47px;
-  }
-
-  .marca-texto strong{
-    font-size:17px;
-  }
-
-  .marca-texto small{
-    font-size:9px;
-  }
-
-  .video-box,
-  .imagem-box{
-    border-radius:9px;
-  }
-
-  .conteudo{
-    padding:8px 0 17px;
-  }
-
-  .secao-titulo{
-    margin:18px 0 10px;
-  }
-
-  .historia{
-    margin:12px 0 18px;
-    padding:14px;
-  }
-
-  .tile .imagem-box{
-    border-radius:0;
-  }
-}
-
-/* ACESSIBILIDADE */
-
-@media(prefers-reduced-motion:reduce){
-  html{
-    scroll-behavior:auto;
-  }
-
-  *,*::before,*::after{
-    transition:none!important;
-    animation:none!important;
+  .menu a:focus-visible {
+    background: var(--creme);
+    border-color: var(--terra);
   }
 }
 
 /* =====================================
-   NOVO LAYOUT PARA DESKTOP
+   CELULARES
+   ===================================== */
+
+@media(max-width:650px) {
+
+  .grade {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .secao-titulo {
+    margin-top: 19px;
+  }
+}
+
+@media(max-width:500px) {
+
+  .container {
+    width: calc(100% - 28px);
+  }
+
+  .topo {
+    min-height: 72px;
+    gap: 8px;
+  }
+
+  .marca {
+    gap: 8px;
+  }
+
+  .marca img {
+    width: 47px;
+    height: 47px;
+  }
+
+  .marca-texto strong {
+    font-size: 17px;
+  }
+
+  .marca-texto small {
+    font-size: 9px;
+  }
+
+  .video-box,
+  .imagem-box {
+    border-radius: 9px;
+  }
+
+  .conteudo {
+    padding: 8px 0 17px;
+  }
+
+  .secao-titulo {
+    margin: 18px 0 10px;
+  }
+
+  .historia {
+    margin: 12px 0 18px;
+    padding: 14px;
+  }
+
+  .tile .imagem-box {
+    border-radius: 0;
+  }
+}
+
+/* =====================================
+   ACESSIBILIDADE
+   ===================================== */
+
+@media(prefers-reduced-motion:reduce) {
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* =====================================
+   LAYOUT DO DESKTOP
    A PARTIR DE 901 PIXELS
    ===================================== */
 
-@media(min-width:901px){
+@media(min-width:901px) {
 
-  .container{
-    width:min(1200px,calc(100% - 64px));
+  .container {
+    width: min(1200px, calc(100% - 64px));
   }
 
-  /* Cabeçalho mais elegante */
+  /* CABEÇALHO */
 
-  .topo{
-    min-height:88px;
+  .topo {
+    min-height: 88px;
   }
 
-  .marca img{
-    width:60px;
-    height:60px;
+  .marca img {
+    width: 60px;
+    height: 60px;
   }
 
-  .marca-texto strong{
-    font-size:22px;
+  .marca-texto strong {
+    font-size: 22px;
   }
 
-  .menu{
-    gap:23px;
+  .menu {
+    gap: 23px;
   }
 
-  .menu a{
-    padding:9px 0;
-    font-size:13px;
-    border-bottom:2px solid transparent;
-    transition:color .18s,border-color .18s;
+  .menu a {
+    padding: 9px 0;
+    font-size: 13px;
+    border-bottom: 2px solid transparent;
+    transition:
+      color .18s,
+      border-color .18s;
   }
 
   .menu a:hover,
-  .menu a:focus-visible{
-    color:var(--terra);
-    border-bottom-color:var(--terra);
+  .menu a:focus-visible {
+    color: var(--terra);
+    border-bottom-color: var(--terra);
   }
 
-  /* Vídeo e jornal lado a lado */
+  /* VÍDEO E JORNAL LADO A LADO */
 
-  main > .container{
-    display:grid;
+  main > .container {
+    display: grid;
     grid-template-columns:
-      minmax(0,1.55fr)
-      minmax(0,1fr);
-    align-items:stretch;
-    column-gap:24px;
-    row-gap:24px;
-    padding-top:28px;
+      minmax(0, 1.55fr)
+      minmax(0, 1fr);
+    align-items: stretch;
+    column-gap: 24px;
+    row-gap: 24px;
+    padding-top: 28px;
   }
 
-  main > .container > section:first-of-type{
-    min-width:0;
-    padding-top:0!important;
+  main > .container > section:first-of-type {
+    min-width: 0;
+    padding-top: 0 !important;
   }
 
-  .video-box{
-    border-radius:15px;
-    box-shadow:var(--sombra);
+  .video-box {
+    border-radius: 15px;
+    box-shadow: var(--sombra);
   }
 
-  .video-acao{
-    padding-right:5px;
+  .video-acao {
+    padding-right: 5px;
   }
 
-  /* Jornal em cartão de destaque */
+  /* JORNAL EM CARTÃO DE DESTAQUE */
 
-  #jornal{
-    display:flex;
-    flex-direction:column;
-    min-width:0;
-    margin:0;
-    padding:15px;
-    gap:12px;
-    background:#FFFDF9;
-    border:1px solid var(--borda);
-    border-radius:15px;
-    box-shadow:var(--sombra);
+  #jornal {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    margin: 0;
+    padding: 15px;
+    gap: 12px;
+    background: #FFFDF9;
+    border: 1px solid var(--borda);
+    border-radius: 15px;
+    box-shadow: var(--sombra);
   }
 
-  #jornal::before{
-    content:'ARQUIVO DIGITAL';
-    display:block;
-    color:var(--verde);
-    font-size:11px;
-    font-weight:850;
-    letter-spacing:.14em;
+  #jornal::before {
+    content: "ARQUIVO DIGITAL";
+    display: block;
+    color: var(--verde);
+    font-size: 11px;
+    font-weight: 850;
+    letter-spacing: .14em;
   }
 
   #jornal .jornal-link,
-  #jornal .imagem-box{
-    border-radius:9px;
-    box-shadow:none;
+  #jornal .imagem-box {
+    border-radius: 9px;
+    box-shadow: none;
   }
 
-  #jornal .link-discreto{
-    display:block;
-    margin:auto 0 0;
-    padding:11px 15px;
-    background:var(--terra);
-    color:#fff;
-    border-radius:9px;
-    text-align:center;
-    font-size:13px;
-    font-weight:800;
-    transition:background .18s;
+  #jornal .link-discreto {
+    display: block;
+    margin: auto 0 0;
+    padding: 11px 15px;
+    background: var(--terra);
+    color: #fff;
+    border-radius: 9px;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 800;
+    transition: background .18s;
   }
 
-  #jornal .link-discreto:hover{
-    background:var(--terra2);
-    text-decoration:none;
+  #jornal .link-discreto:hover {
+    background: var(--terra2);
+    text-decoration: none;
   }
 
-  /* Segunda faixa: Agenda e Comunicados */
+  /* AGENDA E COMUNICADOS */
 
-  main > .container > section:nth-of-type(3){
-    grid-column:1/-1;
-    min-width:0;
+  main > .container >
+  section:nth-of-type(3) {
+    grid-column: 1 / -1;
+    min-width: 0;
   }
 
-  .secao-titulo{
-    margin:8px 0 17px;
+  .secao-titulo {
+    margin: 8px 0 17px;
   }
 
-  .secao-titulo h2{
-    font-size:29px;
+  .secao-titulo h2 {
+    font-size: 29px;
   }
 
-  .grade{
-    gap:24px;
+  .grade {
+    gap: 24px;
   }
 
-  .tile{
-    border-radius:15px;
-    box-shadow:0 7px 26px #2D180A0C;
+  .tile {
+    border-radius: 15px;
+    box-shadow: 0 7px 26px #2D180A0C;
   }
 
-  .tile .imagem-box{
-    border-radius:0;
+  .tile .imagem-box {
+    border-radius: 0;
   }
 
-  .tile-legenda{
-    padding:13px 17px;
-    font-size:14px;
+  .tile-legenda {
+    padding: 13px 17px;
+    font-size: 14px;
   }
 
-  /* História em faixa discreta */
+  /* HISTÓRIA EM FAIXA DISCRETA */
 
-  #historia{
-    grid-column:1/-1;
-    margin:0 0 28px;
-    padding:22px 26px;
+  #historia {
+    grid-column: 1 / -1;
+    margin: 0 0 28px;
+    padding: 22px 26px;
   }
 
-  #historia h2{
-    font-size:25px;
+  #historia h2 {
+    font-size: 25px;
   }
 
-  #historia p{
-    font-size:14px;
+  #historia p {
+    font-size: 14px;
   }
 
-  footer{
-    padding:19px;
+  footer {
+    padding: 19px;
   }
 }
-  
-/* BANNER FIXO SE O VIDEO NAO REPRODUZIR */
+
+/* =====================================
+   IMAGEM FIXA SE O VÍDEO NÃO REPRODUZIR
+   ===================================== */
 
 .video-fundo {
   background: #1E2F0F
@@ -752,7 +830,7 @@ footer{
     center / contain no-repeat;
 }
 
-/* A ARTE JA POSSUI LOGO E TEXTO */
+/* A IMAGEM JÁ POSSUI LOGO E TEXTO */
 
 .video-fundo > img,
 .video-fundo > strong {
@@ -768,9 +846,12 @@ footer{
   Ir para o conteúdo
 </a>
 
-<!-- CABEÇALHO -->
+<!-- =====================================
+     CABEÇALHO
+     ===================================== -->
 
 <header class="cabecalho" id="inicio">
+
   <div class="container topo">
 
     <a
@@ -778,6 +859,7 @@ footer{
       href="#inicio"
       aria-label="Marajoara III, início"
     >
+
       <img
         src="assets/Logo-canto.png"
         width="57"
@@ -790,6 +872,7 @@ footer{
         <strong>Marajoara III</strong>
         <small>Portal do edifício</small>
       </span>
+
     </a>
 
     <button
@@ -810,15 +893,36 @@ footer{
       id="menu-principal"
       aria-label="Navegação principal"
     >
-      <a href="#inicio">Início</a>
-      <a href="jornal.html">Jornal Marajoara III</a>
-      <a href="agenda.html">Agenda e Eventos</a>
-      <a href="comunicados.html">Comunicados</a>
-      <a href="historia.html">Nossa História</a>
+
+      <a href="#inicio">
+        Início
+      </a>
+
+      <a href="jornal.html">
+        Jornal Marajoara III
+      </a>
+
+      <a href="agenda.html">
+        Agenda e Eventos
+      </a>
+
+      <a href="comunicados.html">
+        Comunicados
+      </a>
+
+      <a href="historia.html">
+        Nossa História
+      </a>
+
     </nav>
 
   </div>
+
 </header>
+
+<!-- =====================================
+     CONTEÚDO PRINCIPAL
+     ===================================== -->
 
 <main id="conteudo">
 
@@ -837,7 +941,11 @@ footer{
 
       <div class="video-box">
 
-        <div class="video-fundo" id="video-fundo">
+        <div
+          class="video-fundo"
+          id="video-fundo"
+        >
+
           <img
             src="assets/Logo-canto.png"
             width="100"
@@ -848,6 +956,7 @@ footer{
           <strong>
             Bem-vindos ao Marajoara III
           </strong>
+
         </div>
 
         <video
@@ -859,15 +968,18 @@ footer{
           preload="metadata"
           aria-label="Vídeo de apresentação do Edifício Marajoara III"
         >
+
           <source
             src="assets/banner-marajoara.mp4"
             type="video/mp4"
           >
+
         </video>
 
       </div>
 
       <div class="video-acao">
+
         <button
           id="controle-video"
           type="button"
@@ -875,11 +987,14 @@ footer{
         >
           Pausar animação
         </button>
+
       </div>
 
     </section>
 
-    <!-- BANNER DO JORNAL -->
+    <!-- =====================================
+         JORNAL MARAJOARA III
+         ===================================== -->
 
     <section
       class="conteudo"
@@ -900,10 +1015,15 @@ footer{
         <span class="imagem-box">
 
           <span class="imagem-fundo">
-            <strong>Jornal Marajoara III</strong>
+
+            <strong>
+              Jornal Marajoara III
+            </strong>
+
             <small>
               Notícias, melhorias e memória do edifício
             </small>
+
           </span>
 
           <img
@@ -916,38 +1036,57 @@ footer{
           >
 
         </span>
+
       </a>
 
-      <a class="link-discreto" href="jornal.html">
+      <a
+        class="link-discreto"
+        href="jornal.html"
+      >
         Abrir o jornal ↗
       </a>
 
     </section>
 
-    <!-- AGENDA E COMUNICADOS -->
+    <!-- =====================================
+         AGENDA E COMUNICADOS
+         AGORA COM LINKS NAS ARTES
+         ===================================== -->
 
     <section aria-labelledby="titulo-portal">
 
       <div class="secao-titulo">
+
         <h2 id="titulo-portal">
           Explore o Marajoara III
         </h2>
+
       </div>
 
       <div class="grade">
 
-        <!-- AGENDA -->
+        <!-- AGENDA E EVENTOS -->
 
-        <article class="tile" id="agenda">
+        <a
+          class="tile"
+          id="agenda"
+          href="agenda.html"
+          aria-label="Abrir Agenda e Eventos do Marajoara III"
+        >
 
-          <div class="imagem-box">
+          <span class="imagem-box">
 
-            <div class="imagem-fundo">
-              <strong>Agenda e Eventos</strong>
+            <span class="imagem-fundo">
+
+              <strong>
+                Agenda e Eventos
+              </strong>
+
               <small>
                 Encontros e datas importantes
               </small>
-            </div>
+
+            </span>
 
             <img
               src="assets/banner-agenda-eventos.jpg"
@@ -958,29 +1097,44 @@ footer{
               alt="Banner de Agenda e Eventos"
             >
 
-          </div>
+          </span>
 
-          <div class="tile-legenda">
-            <strong>Agenda e Eventos</strong>
+          <span class="tile-legenda">
+
+            <strong>
+              Agenda e Eventos
+            </strong>
+
             <span class="estado">
-              Em preparação
+              Acessar agenda ↗
             </span>
-          </div>
 
-        </article>
+          </span>
+
+        </a>
 
         <!-- COMUNICADOS -->
 
-        <article class="tile" id="comunicados">
+        <a
+          class="tile"
+          id="comunicados"
+          href="comunicados.html"
+          aria-label="Abrir Comunicados do Marajoara III"
+        >
 
-          <div class="imagem-box">
+          <span class="imagem-box">
 
-            <div class="imagem-fundo">
-              <strong>Comunicados</strong>
+            <span class="imagem-fundo">
+
+              <strong>
+                Comunicados
+              </strong>
+
               <small>
                 Informações do edifício
               </small>
-            </div>
+
+            </span>
 
             <img
               src="assets/banner-comunicados.jpg"
@@ -991,21 +1145,29 @@ footer{
               alt="Banner de Comunicados"
             >
 
-          </div>
+          </span>
 
-          <div class="tile-legenda">
-            <strong>Comunicados</strong>
+          <span class="tile-legenda">
+
+            <strong>
+              Comunicados
+            </strong>
+
             <span class="estado">
-              Em preparação
+              Ver comunicados ↗
             </span>
-          </div>
 
-        </article>
+          </span>
+
+        </a>
 
       </div>
+
     </section>
 
-    <!-- NOSSA HISTÓRIA -->
+    <!-- =====================================
+         NOSSA HISTÓRIA
+         ===================================== -->
 
     <section
       class="historia"
@@ -1018,29 +1180,44 @@ footer{
       </h2>
 
       <p>
-        Memórias do Edifício Marajoara III · Em preparação
+        Memórias do Edifício Marajoara III
+        · Em preparação
       </p>
 
     </section>
 
   </div>
+
 </main>
 
-<!-- RODAPÉ -->
+<!-- =====================================
+     RODAPÉ
+     ===================================== -->
 
 <footer>
+
   © <span id="ano">2026</span>
+
   Marajoara III · Edifício Marajoara III
+
 </footer>
+
+<!-- =====================================
+     JAVASCRIPT
+     ===================================== -->
 
 <script>
 'use strict';
 
 const $ = id => document.getElementById(id);
 
+/* ANO AUTOMÁTICO */
+
 $('ano').textContent = new Date().getFullYear();
 
-/* MENU RESPONSIVO */
+/* =====================================
+   MENU RESPONSIVO
+   ===================================== */
 
 const botao = $('hamburguer');
 const menu = $('menu-principal');
@@ -1058,16 +1235,23 @@ function abrirMenu(aberto) {
     'aria-label',
     aberto ? 'Fechar menu' : 'Abrir menu'
   );
+
 }
 
 botao.addEventListener('click', () => {
+
   abrirMenu(
     botao.getAttribute('aria-expanded') !== 'true'
   );
+
 });
 
 menu.querySelectorAll('a').forEach(a => {
-  a.addEventListener('click', () => abrirMenu(false));
+
+  a.addEventListener('click', () => {
+    abrirMenu(false);
+  });
+
 });
 
 document.addEventListener('click', e => {
@@ -1076,7 +1260,9 @@ document.addEventListener('click', e => {
     !menu.contains(e.target) &&
     !botao.contains(e.target)
   ) {
+
     abrirMenu(false);
+
   }
 
 });
@@ -1087,55 +1273,71 @@ document.addEventListener('keydown', e => {
     e.key === 'Escape' &&
     botao.getAttribute('aria-expanded') === 'true'
   ) {
+
     abrirMenu(false);
     botao.focus();
+
   }
 
 });
 
 window.addEventListener('resize', () => {
-  if (innerWidth > 900) abrirMenu(false);
+
+  if (innerWidth > 900) {
+    abrirMenu(false);
+  }
+
 });
 
-/* CARREGAMENTO DOS BANNERS */
+/* =====================================
+   CARREGAMENTO DOS BANNERS
+   ===================================== */
 
-document.querySelectorAll('.imagem-box img').forEach(img => {
+document
+  .querySelectorAll('.imagem-box img')
+  .forEach(img => {
 
-  const pronto = () => {
+    const pronto = () => {
 
-    img.classList.add('carregada');
+      img.classList.add('carregada');
 
-    const fundo =
-      img.parentElement.querySelector('.imagem-fundo');
+      const fundo = img.parentElement
+        .querySelector('.imagem-fundo');
 
-    if (fundo) fundo.hidden = true;
-  };
+      if (fundo) {
+        fundo.hidden = true;
+      }
 
-  if (img.complete && img.naturalWidth > 0) {
+    };
 
-    pronto();
+    if (img.complete && img.naturalWidth > 0) {
 
-  } else {
+      pronto();
+
+    } else {
+
+      img.addEventListener(
+        'load',
+        pronto,
+        {once:true}
+      );
+
+    }
 
     img.addEventListener(
-      'load',
-      pronto,
+      'error',
+      () => {
+        img.hidden = true;
+      },
       {once:true}
     );
 
-  }
+  });
 
-  img.addEventListener(
-    'error',
-    () => {
-      img.hidden = true;
-    },
-    {once:true}
-  );
-
-});
-
-/* VÍDEO PRINCIPAL */
+/* =====================================
+   VÍDEO PRINCIPAL
+   E IMAGEM FIXA DE SEGURANÇA
+   ===================================== */
 
 const video = $('banner-video');
 const controle = $('controle-video');
@@ -1146,7 +1348,8 @@ const reducao = window.matchMedia(
 
 function atualizarVideo() {
 
-  const tocando = !video.paused && !video.ended;
+  const tocando =
+    !video.paused && !video.ended;
 
   controle.textContent = tocando
     ? 'Pausar animação'
@@ -1159,20 +1362,34 @@ function atualizarVideo() {
 
 }
 
+/* MOSTRA O VÍDEO QUANDO COMEÇAR */
+
 video.addEventListener('playing', () => {
+
   video.classList.add('pronto');
+
   atualizarVideo();
+
 });
+
+/* ATUALIZA O BOTÃO DE PAUSA */
 
 video.addEventListener(
   'pause',
   atualizarVideo
 );
 
+/* MANTÉM A IMAGEM FIXA EM CASO DE ERRO */
+
 video.addEventListener('error', () => {
+
   video.classList.remove('pronto');
+
   controle.hidden = true;
+
 });
+
+/* CONTROLE DE REPRODUÇÃO */
 
 controle.addEventListener('click', () => {
 
@@ -1188,9 +1405,12 @@ controle.addEventListener('click', () => {
 
 });
 
+/* RESPEITA A PREFERÊNCIA DE MOVIMENTO */
+
 if (reducao) {
 
   video.autoplay = false;
+
   video.pause();
 
 } else {
