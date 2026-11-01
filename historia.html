@@ -1,0 +1,441 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#AA3716">
+<meta name="description" content="Conheça a história do Conjunto Residencial Marajoara e do Edifício Marajoara III, em Piracicaba (SP).">
+<title>Nossa História | Marajoara III</title>
+<style>
+:root{
+  --terra:#AA3716;
+  --terra2:#7D2A13;
+  --creme:#F2E3C7;
+  --papel:#FBF7EF;
+  --branco:#FFFDF9;
+  --verde:#4D5F2D;
+  --floresta:#1E2F0F;
+  --texto:#2D180A;
+  --suave:#685646;
+  --borda:#E5D7BF;
+  --sombra:0 10px 28px #2D180A12;
+}
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;scroll-padding-top:94px}
+body{
+  display:flex;flex-direction:column;min-height:100svh;margin:0;
+  background:var(--papel);color:var(--texto);
+  font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+main{flex:1}
+a{color:inherit}
+button{font:inherit;cursor:pointer}
+a:focus-visible,button:focus-visible{outline:3px solid var(--verde);outline-offset:3px}
+.container{width:min(1200px,calc(100% - 36px));margin-inline:auto}
+.skip{
+  position:fixed;top:-90px;left:12px;z-index:100;
+  padding:10px 15px;border-radius:8px;background:var(--floresta);color:white;
+}
+.skip:focus{top:10px}
+/* CABEÇALHO — MESMA IDENTIDADE DAS OUTRAS PÁGINAS */
+.cabecalho{position:sticky;top:0;z-index:50;background:var(--papel);border-bottom:1px solid var(--borda)}
+.topo{min-height:88px;display:flex;align-items:center;justify-content:space-between;gap:12px;position:relative}
+.marca{display:flex;align-items:center;gap:10px;min-width:0;text-decoration:none}
+.marca img{display:block;width:60px;height:60px;object-fit:contain;flex:none}
+.marca-texto{display:flex;flex-direction:column;line-height:1.15}
+.marca-texto strong{font:bold 22px Georgia,serif}
+.marca-texto small{
+  margin-top:5px;color:var(--verde);font-size:10px;
+  font-weight:800;letter-spacing:.08em;text-transform:uppercase;
+}
+.menu{display:flex;align-items:center;gap:23px}
+.menu a{
+  padding:9px 0;border-bottom:2px solid transparent;
+  text-decoration:none;font-size:13px;font-weight:750;
+}
+.menu a:hover,.menu a[aria-current="page"]{color:var(--terra);border-color:var(--terra)}
+.hamburguer{
+  display:none;width:45px;height:45px;flex:none;
+  align-items:center;justify-content:center;flex-direction:column;gap:5px;
+  background:var(--branco);border:1px solid var(--borda);border-radius:10px;
+}
+.hamburguer span{
+  display:block;width:21px;height:2px;border-radius:3px;
+  background:var(--terra2);transition:transform .2s,opacity .2s;
+}
+.hamburguer[aria-expanded="true"] span:first-child{transform:translateY(7px) rotate(45deg)}
+.hamburguer[aria-expanded="true"] span:nth-child(2){opacity:0}
+.hamburguer[aria-expanded="true"] span:last-child{transform:translateY(-7px) rotate(-45deg)}
+/* ABERTURA */
+.trilha{display:flex;gap:9px;align-items:center;flex-wrap:wrap;padding:19px 0;color:var(--suave);font-size:13px}
+.trilha a{color:var(--terra2);text-underline-offset:3px}
+.abertura{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:22px;align-items:stretch}
+.introducao{
+  min-width:0;padding:clamp(24px,4vw,46px);
+  border:1px solid var(--borda);border-radius:15px;
+  background:linear-gradient(135deg,#F3E7D3 0%,#FFFDF9 65%,#ECEDD9 100%);
+  box-shadow:var(--sombra);
+}
+.rotulo{display:block;color:var(--verde);font-size:11px;font-weight:850;letter-spacing:.14em;text-transform:uppercase}
+h1,h2,h3{font-family:Georgia,"Times New Roman",serif;line-height:1.19;text-wrap:balance}
+h1{margin:10px 0 18px;font-size:clamp(34px,4.5vw,57px)}
+h2{margin:0;font-size:clamp(25px,3vw,33px)}
+h3{margin:0 0 8px;font-size:21px}
+.introducao p{max-width:650px;margin:0 0 13px;color:var(--suave)}
+.introducao strong{color:var(--texto)}
+.acoes{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.acao{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-height:43px;padding:10px 16px;border-radius:9px;
+  background:var(--terra);color:white;text-decoration:none;font-size:13px;font-weight:800;
+}
+.acao:hover{background:var(--terra2)}
+.acao.secundaria{background:var(--branco);color:var(--terra2);border:1px solid var(--borda)}
+.acao.secundaria:hover{background:var(--creme)}
+.cartao-portal{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:12px;padding:26px;border-radius:15px;
+  border:1px solid var(--borda);background:var(--branco);box-shadow:var(--sombra);text-align:center;
+}
+.cartao-portal img{display:block;width:min(155px,42%);height:auto;object-fit:contain}
+.cartao-portal strong{font:bold clamp(21px,2.6vw,29px) Georgia,serif}
+.cartao-portal p{margin:0;color:var(--suave);font-size:14px}
+.selo-status{
+  display:inline-block;margin-top:9px;padding:6px 12px;
+  border-radius:40px;background:#EAECD9;color:var(--verde);font-size:11px;font-weight:800;
+}
+/* SEÇÕES */
+.secao{padding:39px 0 5px}
+.cabeca-secao{display:flex;align-items:center;gap:17px;margin:0 0 18px}
+.cabeca-secao::after{content:"";height:1px;flex:1;background:var(--borda)}
+.texto-intro{margin:0 0 18px;max-width:900px;color:var(--suave);font-size:15px}
+.fatos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.fato{padding:21px;background:var(--branco);border:1px solid var(--borda);border-radius:12px}
+.fato strong{display:block;margin-bottom:7px;color:var(--terra2);font-size:13px;font-weight:800}
+.fato p{margin:0;font-size:14px;color:var(--suave)}
+.fato em{font-style:normal;color:var(--texto);font-weight:750}
+/* LINHA DO TEMPO */
+.tempo{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.marco{
+  position:relative;padding:23px 21px 22px;border:1px solid var(--borda);
+  border-top:4px solid var(--terra);border-radius:12px;background:var(--branco);
+}
+.marco .ano{display:block;color:var(--terra2);font:bold 29px Georgia,serif;margin-bottom:10px}
+.marco h3{font-size:19px}
+.marco p{margin:0;color:var(--suave);font-size:14px}
+/* GALERIA COM TRÊS ESPAÇOS */
+.galeria{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.foto{margin:0;min-width:0;overflow:hidden;background:var(--branco);border:1px solid var(--borda);border-radius:13px}
+.foto-visual{position:relative;aspect-ratio:4/3;overflow:hidden;background:linear-gradient(145deg,#EFE0C8,#E0C39E)}
+.foto-visual img{
+  position:absolute;inset:0;display:block;width:100%;height:100%;
+  object-fit:cover;opacity:0;transition:opacity .25s;
+}
+.foto-visual img.carregada{opacity:1}
+.foto-marcador{
+  position:absolute;inset:0;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:9px;padding:18px;text-align:center;color:var(--terra2);
+}
+.foto-marcador b{font:bold 45px Georgia,serif;opacity:.55}
+.foto-marcador span{font-size:13px;font-weight:750}
+.foto figcaption{padding:15px 17px}
+.foto figcaption strong{display:block;margin-bottom:5px;font-size:14px}
+.foto figcaption p{margin:0;color:var(--suave);font-size:12px}
+/* ACERVO / DOCUMENTAÇÃO */
+.acervo{
+  display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);
+  gap:24px;padding:27px;background:#F4EBD9;border:1px solid var(--borda);border-radius:14px;
+}
+.acervo h2{margin:0 0 12px}
+.acervo p{margin:0 0 12px;color:var(--suave);font-size:14px}
+.acervo ul{margin:0;padding-left:20px;color:var(--texto);font-size:14px}
+.acervo li+li{margin-top:7px}
+.nota{
+  align-self:start;padding:18px;border-radius:11px;border-left:4px solid var(--verde);
+  background:var(--branco);
+}
+.nota strong{display:block;color:var(--floresta);font-size:14px;margin-bottom:7px}
+.nota p{margin:0;font-size:13px}
+.voltar{display:inline-block;margin:24px 0 15px;color:var(--terra2);font-weight:800;font-size:13px;text-underline-offset:4px}
+/* RODAPÉ */
+.rodape{margin-top:30px;padding:19px 0;background:var(--terra2);color:#F5E8D5;font-size:13px}
+.rodape .container{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+@media(max-width:900px){
+  .topo{min-height:78px}
+  .marca img{width:54px;height:54px}
+  .marca-texto strong{font-size:19px}
+  .hamburguer{display:flex}
+  .menu{
+    display:none;position:absolute;top:100%;right:0;z-index:60;
+    width:max-content;max-width:calc(100vw - 28px);max-height:calc(100dvh - 85px);
+    overflow-y:auto;flex-direction:column;align-items:stretch;gap:5px;padding:7px;
+    background:var(--papel);border:1px solid var(--borda);border-radius:0 0 12px 12px;box-shadow:var(--sombra);
+  }
+  .menu.aberto{display:flex}
+  .menu a{
+    display:flex;align-items:center;min-height:39px;padding:9px 12px;
+    white-space:nowrap;line-height:1.25;background:var(--branco);
+    border:1px solid var(--borda);border-radius:8px;color:var(--terra2);font-size:14px;
+  }
+  .menu a:hover,.menu a:focus-visible,.menu a[aria-current="page"]{background:var(--creme);border-color:var(--terra)}
+  .abertura{grid-template-columns:1fr}
+  .cartao-portal{min-height:240px}
+  .cartao-portal img{width:120px}
+  .tempo{grid-template-columns:1fr}
+}
+@media(max-width:650px){
+  .container{width:calc(100% - 28px)}
+  .topo{min-height:72px;gap:8px}
+  .marca{gap:8px}
+  .marca img{width:47px;height:47px}
+  .marca-texto strong{font-size:17px}
+  .marca-texto small{font-size:9px}
+  .trilha{padding:14px 0}
+  .introducao{padding:22px}
+  .cartao-portal{padding:19px;min-height:205px}
+  .secao{padding-top:29px}
+  .fatos,.galeria,.acervo{grid-template-columns:1fr}
+  .foto-visual{aspect-ratio:16/10}
+  .acervo{padding:20px;gap:15px}
+  .rodape{margin-top:20px}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{transition:none!important;animation:none!important}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#conteudo">Ir para o conteúdo</a>
+
+<!-- CABEÇALHO -->
+<header class="cabecalho">
+  <div class="container topo">
+    <a class="marca" href="index.html" aria-label="Voltar ao Portal Marajoara III">
+      <img src="assets/Logo-canto.png" width="60" height="60" alt="" decoding="async">
+      <span class="marca-texto">
+        <strong>Marajoara III</strong>
+        <small>Portal do edifício</small>
+      </span>
+    </a>
+    <button class="hamburguer" id="hamburguer" type="button"
+            aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-principal">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="menu" id="menu-principal" aria-label="Navegação principal">
+      <a href="index.html">Início</a>
+      <a href="jornal.html">Jornal Marajoara III</a>
+      <a href="agenda.html">Agenda e Eventos</a>
+      <a href="comunicados.html">Comunicados</a>
+      <a href="historia.html" aria-current="page">Nossa História</a>
+    </nav>
+  </div>
+</header>
+
+<main id="conteudo">
+  <div class="container">
+    <nav class="trilha" aria-label="Localização na página">
+      <a href="index.html">Início</a><span aria-hidden="true">›</span><span>Nossa História</span>
+    </nav>
+
+    <!-- APRESENTAÇÃO -->
+    <section class="abertura" aria-labelledby="titulo-historia">
+      <div class="introducao">
+        <span class="rotulo">Memória do nosso edifício</span>
+        <h1 id="titulo-historia">Nossa História</h1>
+        <p>O <strong>Edifício Marajoara</strong>, também referido como parte do
+          <strong>Conjunto Residencial Marajoara</strong>, está localizado no bairro
+          <strong>Parque Santa Cecília</strong>, em <strong>Piracicaba (SP)</strong>.</p>
+        <p>Este espaço reúne as informações que já temos sobre o conjunto e o
+          Bloco III. Aos poucos, vamos preservar fotografias, documentos e
+          lembranças que ajudam a contar a trajetória da nossa comunidade.</p>
+        <div class="acoes">
+          <a class="acao" href="#informacoes">Conheça o edifício ↓</a>
+          <a class="acao secundaria" href="#galeria">Ver fotografias ↓</a>
+        </div>
+      </div>
+      <aside class="cartao-portal" aria-label="Identidade Marajoara III">
+        <img src="assets/Logo-canto.png" width="155" height="155"
+             alt="Brasão do Marajoara III" loading="lazy" decoding="async">
+        <strong>Edifício Marajoara III</strong>
+        <p>Memória, convivência e cuidado com o lugar onde vivemos.</p>
+        <span class="selo-status">Acervo histórico em construção</span>
+      </aside>
+    </section>
+
+    <!-- O QUE JÁ SABEMOS -->
+    <section class="secao" id="informacoes" aria-labelledby="titulo-informacoes">
+      <div class="cabeca-secao"><h2 id="titulo-informacoes">Informações principais</h2></div>
+      <p class="texto-intro">As informações abaixo fazem parte de um levantamento inicial.
+        Alguns detalhes e datas serão conferidos com os documentos do condomínio.</p>
+      <div class="fatos">
+        <article class="fato">
+          <strong>Localização</strong>
+          <p><em>Rua Heitor Villa-Lobos, nº 333</em>, bairro Parque Santa Cecília,
+            Piracicaba, São Paulo. O conjunto possui blocos e organizações relacionadas,
+            incluindo referências ao <em>Bloco III</em>.</p>
+        </article>
+        <article class="fato">
+          <strong>Registros históricos</strong>
+          <p>Há referências preliminares a registros formais do conjunto em
+            <em>março de 1998</em> e à constituição de uma associação relacionada
+            ao Bloco III em <em>maio de 2009</em>. As datas ainda serão confirmadas.</p>
+        </article>
+        <article class="fato">
+          <strong>Apartamentos</strong>
+          <p>As informações reunidas mencionam unidades de aproximadamente
+            <em>73 m² a 80 m²</em>, com <em>dois a três dormitórios</em>,
+            incluindo suíte em algumas configurações. As características podem variar.</p>
+        </article>
+        <article class="fato">
+          <strong>Estrutura e convivência</strong>
+          <p>O Marajoara é um conjunto residencial tradicional na região,
+            com espaços comuns de convivência e referências a infraestrutura
+            de lazer, incluindo <em>playground</em>.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- LINHA DO TEMPO PRELIMINAR -->
+    <section class="secao" aria-labelledby="titulo-tempo">
+      <div class="cabeca-secao"><h2 id="titulo-tempo">Linha do tempo</h2></div>
+      <p class="texto-intro">Uma primeira organização dos marcos históricos.
+        As datas e os acontecimentos poderão ser ampliados com o acervo documental.</p>
+      <div class="tempo">
+        <article class="marco">
+          <span class="ano">1998</span>
+          <h3>Registros do conjunto</h3>
+          <p>Referência preliminar a registros formais de março de 1998.
+            A natureza e os dados desses documentos ainda precisam ser conferidos.</p>
+        </article>
+        <article class="marco">
+          <span class="ano">2009</span>
+          <h3>Organização do Bloco III</h3>
+          <p>Referência preliminar a uma associação relacionada ao Bloco III,
+            em maio de 2009. A documentação ajudará a esclarecer sua trajetória.</p>
+        </article>
+        <article class="marco">
+          <span class="ano">Hoje</span>
+          <h3>Memória compartilhada</h3>
+          <p>O Jornal Marajoara III e este portal ajudam a organizar os
+            registros, as melhorias e as lembranças da comunidade.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- TRÊS FOTOS: SUBIR OS ARQUIVOS EM ASSETS -->
+    <section class="secao" id="galeria" aria-labelledby="titulo-galeria">
+      <div class="cabeca-secao"><h2 id="titulo-galeria">Galeria da nossa história</h2></div>
+      <p class="texto-intro">Reservamos três espaços para fotografias do edifício.
+        Enquanto selecionamos as imagens autorizadas, os cartões mostram uma prévia.</p>
+      <div class="galeria">
+        <figure class="foto">
+          <div class="foto-visual">
+            <div class="foto-marcador"><b>01</b><span>Espaço reservado para fotografia</span></div>
+            <img src="assets/historia-01.jpg" alt="Fotografia da fachada do Edifício Marajoara III"
+                 loading="lazy" decoding="async">
+          </div>
+          <figcaption><strong>O nosso edifício</strong>
+            <p>Fachada, entrada ou uma vista geral do Marajoara III.</p></figcaption>
+        </figure>
+        <figure class="foto">
+          <div class="foto-visual">
+            <div class="foto-marcador"><b>02</b><span>Espaço reservado para fotografia</span></div>
+            <img src="assets/historia-02.jpg" alt="Fotografia histórica do Conjunto Residencial Marajoara"
+                 loading="lazy" decoding="async">
+          </div>
+          <figcaption><strong>Registros do passado</strong>
+            <p>Fotografia antiga, se houver material disponível no acervo.</p></figcaption>
+        </figure>
+        <figure class="foto">
+          <div class="foto-visual">
+            <div class="foto-marcador"><b>03</b><span>Espaço reservado para fotografia</span></div>
+            <img src="assets/historia-03.jpg" alt="Fotografia de espaços comuns do Marajoara III"
+                 loading="lazy" decoding="async">
+          </div>
+          <figcaption><strong>Espaços e convivência</strong>
+            <p>Jardins, áreas comuns ou detalhes que fazem parte da nossa história.</p></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- DADOS PARA SOLICITAR À SANDRA -->
+    <section class="secao" aria-labelledby="titulo-acervo">
+      <div class="acervo">
+        <div>
+          <span class="rotulo">Próximas descobertas</span>
+          <h2 id="titulo-acervo">Vamos ampliar nossa memória</h2>
+          <p>Se a administração dispuser de um dossiê, registros ou fotografias
+            antigas, poderemos complementar esta página com mais precisão.</p>
+          <ul>
+            <li>Documentos que confirmem a fundação, o registro e a entrega do conjunto.</li>
+            <li>Informações sobre a formação dos blocos e da associação do Bloco III.</li>
+            <li>Fotografias antigas e atuais do edifício.</li>
+            <li>Marcos importantes, melhorias e acontecimentos da comunidade.</li>
+          </ul>
+        </div>
+        <aside class="nota">
+          <strong>Compromisso com a memória</strong>
+          <p>Vamos conferir datas e informações antes de apresentá-las como fatos
+            documentados. Materiais particulares, dados pessoais e imagens de moradores
+            só devem ser divulgados com a devida autorização.</p>
+        </aside>
+      </div>
+      <a class="voltar" href="index.html">← Voltar ao portal</a>
+    </section>
+  </div>
+</main>
+
+<footer class="rodape">
+  <div class="container">
+    <span>© <span id="ano">2026</span> Marajoara III · Edifício Marajoara III</span>
+    <span>Preservando a memória da nossa comunidade</span>
+  </div>
+</footer>
+
+<script>
+'use strict';
+const $=id=>document.getElementById(id);
+$('ano').textContent=new Date().getFullYear();
+
+/* MENU RESPONSIVO */
+const botao=$('hamburguer');
+const menu=$('menu-principal');
+function abrirMenu(aberto){
+  menu.classList.toggle('aberto',aberto);
+  botao.setAttribute('aria-expanded',String(aberto));
+  botao.setAttribute('aria-label',aberto?'Fechar menu':'Abrir menu');
+}
+botao.addEventListener('click',()=>{
+  abrirMenu(botao.getAttribute('aria-expanded')!=='true');
+});
+menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>abrirMenu(false)));
+document.addEventListener('click',e=>{
+  if(!menu.contains(e.target)&&!botao.contains(e.target))abrirMenu(false);
+});
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'&&botao.getAttribute('aria-expanded')==='true'){
+    abrirMenu(false);botao.focus();
+  }
+});
+window.addEventListener('resize',()=>{
+  if(window.innerWidth>900)abrirMenu(false);
+});
+
+/* FOTOGRAFIAS: MOSTRAR A IMAGEM SOMENTE SE O ARQUIVO EXISTIR */
+document.querySelectorAll('.foto-visual img').forEach(img=>{
+  const mostrar=()=>{
+    if(img.naturalWidth>0){
+      img.classList.add('carregada');
+      const marcador=img.parentElement.querySelector('.foto-marcador');
+      if(marcador)marcador.hidden=true;
+    }
+  };
+  if(img.complete)mostrar();
+  img.addEventListener('load',mostrar,{once:true});
+  img.addEventListener('error',()=>{img.hidden=true;},{once:true});
+});
+</script>
+</body>
+</html>
