@@ -1,9 +1,10 @@
-
 {
   "versao": 1,
   "nome": "Jornal Marajoara",
   "descricao": "Arquivo público de matérias e edições autorizadas do Edifício Marajoara III.",
-  "anos_iniciais": [2026],
+  "anos_iniciais": [
+    2026
+  ],
   "materias": [
     {
       "id": "iluminacao-do-campo-2026",
@@ -152,6 +153,86 @@
       "edicao": "1",
       "conteudo": [
         "Foi realizada a substituição do portão eletrônico de acesso de veículos ao edifício, proporcionando mais segurança aos moradores."
+      ],
+      "imagens": []
+    },
+    {
+      "id": "infiltracoes-na-fachada-2026-ed2",
+      "titulo": "01 — Infiltrações na fachada",
+      "resumo": "Identificação de sinais de infiltração nas paredes externas do edifício.",
+      "categoria": "Manutenção",
+      "ano_referencia": 2026,
+      "data_realizacao": "2026",
+      "precisao_data": "ano",
+      "data_publicacao": "2026-11-10",
+      "edicao": "2",
+      "conteudo": [
+        "Foram identificados sinais de infiltração nas paredes externas do edifício, evidenciando a necessidade de avaliação e cuidados para preservar a conservação da fachada.",
+        "O acompanhamento das condições dessas áreas é importante para orientar eventuais intervenções de manutenção."
+      ],
+      "imagens": []
+    },
+    {
+      "id": "troca-dos-extintores-2026-ed2",
+      "titulo": "02 — Troca dos extintores de incêndio",
+      "resumo": "Substituição dos extintores de incêndio do condomínio.",
+      "categoria": "Segurança",
+      "ano_referencia": 2026,
+      "data_realizacao": "2026",
+      "precisao_data": "ano",
+      "data_publicacao": "2026-11-10",
+      "edicao": "2",
+      "conteudo": [
+        "Foi realizada a substituição dos extintores de incêndio do condomínio, contribuindo para a manutenção dos equipamentos e a segurança dos moradores.",
+        "A renovação dos equipamentos integra os cuidados com as áreas comuns e a prevenção de riscos no edifício."
+      ],
+      "imagens": []
+    },
+    {
+      "id": "reparo-telhado-quiosque-2026-ed2",
+      "titulo": "03 — Reparo do telhado do quiosque",
+      "resumo": "Reparos na cobertura do quiosque após o temporal de 7 de novembro.",
+      "categoria": "Manutenção",
+      "ano_referencia": 2026,
+      "data_realizacao": "2026-11-09",
+      "precisao_data": "dia",
+      "data_publicacao": "2026-11-10",
+      "edicao": "2",
+      "conteudo": [
+        "Após o forte temporal de 7 de novembro de 2026, que danificou parte das telhas do quiosque, foram realizados reparos na cobertura no dia 9 de novembro.",
+        "O serviço buscou recuperar a área afetada e restabelecer as condições de uso e conservação da cobertura."
+      ],
+      "imagens": []
+    },
+    {
+      "id": "troca-portao-de-aco-2026-ed2",
+      "titulo": "04 — Troca do portão de aço",
+      "resumo": "Substituição do portão de aço de acesso ao estacionamento.",
+      "categoria": "Segurança e acesso",
+      "ano_referencia": 2026,
+      "data_realizacao": "2026",
+      "precisao_data": "ano",
+      "data_publicacao": "2026-11-10",
+      "edicao": "2",
+      "conteudo": [
+        "Foi realizada a substituição do portão de aço de acesso ao estacionamento, contribuindo para melhorar a segurança e as condições de entrada e saída dos veículos.",
+        "A intervenção faz parte dos cuidados de manutenção dos acessos do condomínio."
+      ],
+      "imagens": []
+    },
+    {
+      "id": "instalacao-armarios-quiosque-2026-ed2",
+      "titulo": "05 — Instalação de armários no quiosque",
+      "resumo": "Instalação de armários para organizar utensílios no quiosque.",
+      "categoria": "Melhorias",
+      "ano_referencia": 2026,
+      "data_realizacao": "2026",
+      "precisao_data": "ano",
+      "data_publicacao": "2026-11-10",
+      "edicao": "2",
+      "conteudo": [
+        "Foram instalados armários no quiosque do condomínio, proporcionando mais espaço para guardar utensílios e contribuindo para a organização e funcionalidade do ambiente.",
+        "A melhoria ajuda a aproveitar melhor a área de apoio utilizada pelos moradores."
       ],
       "imagens": []
     }
