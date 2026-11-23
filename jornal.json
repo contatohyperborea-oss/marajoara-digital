@@ -273,4 +273,53 @@
       "imagem": "jornal-marajoara-01.jpg"
     }
   ]
+},
+
+
+,
+{
+  "id": "falta-de-energia-eletrica-2026-ed2",
+  "titulo": "06 — Falta de energia elétrica",
+  "resumo": "Interrupção do fornecimento de energia elétrica em 8 de novembro de 2026.",
+  "categoria": "Ocorrências",
+  "ano_referencia": 2026,
+  "data_realizacao": "2026-11-08",
+  "precisao_data": "dia",
+  "data_publicacao": "2026-11-23",
+  "edicao": "2",
+  "conteudo": [
+    "Em 8 de novembro de 2026, o Edifício Marajoara III ficou temporariamente sem fornecimento de energia elétrica.",
+    "O abastecimento de energia foi restabelecido às 15h52.",
+    "Também foi registrada a possibilidade de cobrança extraordinária à parte, cujos valores e condições deverão ser confirmados pela administração do condomínio."
+  ],
+  "imagens": [
+    {
+      "arquivo": "assets/edicao-02/02-06-falta-de-energia-eletrica.jpg",
+      "alt": "Registro da falta de energia elétrica no Edifício Marajoara III"
+    }
+  ]
+},
+{
+  "id": "falha-na-bomba-de-agua-2026-ed2",
+  "titulo": "07 — Falha na bomba de água",
+  "resumo": "Falha no sistema de bombeamento em 22 de novembro, com abastecimento restabelecido em 23 de novembro de 2026.",
+  "categoria": "Manutenção",
+  "ano_referencia": 2026,
+  "data_realizacao": "2026-11-22",
+  "precisao_data": "dia",
+  "data_publicacao": "2026-11-23",
+  "edicao": "2",
+  "conteudo": [
+    "Em 22 de novembro de 2026, uma das bombas do sistema de abastecimento de água do edifício apresentou uma falha, comprometendo o fornecimento aos moradores.",
+    "Foi realizada uma intervenção no sistema, mas uma nova falha ocorreu durante a noite.",
+    "Uma manutenção na fiação ficou prevista para o dia 23 de novembro de 2026.",
+    "Atualização de 23 de novembro de 2026: o abastecimento de água foi restabelecido e voltou ao normal, conforme confirmação de moradores. A conclusão do serviço na fiação ainda depende de confirmação."
+  ],
+  "imagens": [
+    {
+      "arquivo": "assets/edicao-02/02-07-falha-na-bomba-de-agua.jpg",
+      "alt": "Registro da falha no sistema de bombeamento de água do edifício"
+    }
+  ]
 }
+
