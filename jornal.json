@@ -172,7 +172,7 @@
         "Foram identificados sinais de infiltração nas paredes externas do edifício, evidenciando a necessidade de avaliação e cuidados para preservar a conservação da fachada.",
         "O acompanhamento das condições dessas áreas é importante para orientar eventuais intervenções de manutenção."
       ],
-      "imagens": []
+      "imagens": [{"arquivo": "assets/edicao-02/02-troca-dos-extintores.jpg"}]
     },
 
     {
@@ -189,8 +189,9 @@
         "Foi realizada a substituição dos extintores de incêndio do condomínio, contribuindo para a manutenção dos equipamentos e a segurança dos moradores.",
         "A renovação dos equipamentos integra os cuidados com as áreas comuns e a prevenção de riscos no edifício."
       ],
-      "imagens": []
+      "imagens": [{"arquivo": "assets/edicao-02/02-reparo-telhado-quiosque.jpg"}]
     },
+    
     {
       "id": "reparo-telhado-quiosque-2026-ed2",
       "titulo": "03 — Reparo do telhado do quiosque",
@@ -205,7 +206,13 @@
         "Após o forte temporal de 7 de novembro de 2026, que danificou parte das telhas do quiosque, foram realizados reparos na cobertura no dia 9 de novembro.",
         "O serviço buscou recuperar a área afetada e restabelecer as condições de uso e conservação da cobertura."
       ],
-      "imagens": []
+      
+"imagens": [
+  {
+    "arquivo": "assets/edicao-02/02-troca-portao-de-aco.jpg",
+    "alt": "Troca do portão de aço do estacionamento"
+  }
+]
     },
     {
       "id": "troca-portao-de-aco-2026-ed2",
@@ -221,7 +228,7 @@
         "Foi realizada a substituição do portão de aço de acesso ao estacionamento, contribuindo para melhorar a segurança e as condições de entrada e saída dos veículos.",
         "A intervenção faz parte dos cuidados de manutenção dos acessos do condomínio."
       ],
-      "imagens": []
+      "imagens": [{"arquivo": "assets/edicao-02/02-instalacao-armarios-quiosque.jpg"}]
     },
     {
       "id": "instalacao-armarios-quiosque-2026-ed2",
