@@ -154,7 +154,11 @@
       "conteudo": [
         "Foi realizada a substituição do portão eletrônico de acesso de veículos ao edifício, proporcionando mais segurança aos moradores."
       ],
+    
       "imagens": [{"arquivo": "assets/edicao-02/02-infiltracoes-na-fachada.jpg"}]
+    },
+      
+      
       "id": "infiltracoes-na-fachada-2026-ed2",
       "titulo": "01 — Infiltrações na fachada",
       "resumo": "Identificação de sinais de infiltração nas paredes externas do edifício.",
