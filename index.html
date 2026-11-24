@@ -1,213 +1,281 @@
-#!/usr/bin/env python3
-"""Gera um index.html otimizado do Marajoara III a partir do main atual do GitHub.
-Uso (Termux): cd /storage/emulated/0/download/Hyperborea && python preparar_index_marajoara_youtube.py
-"""
-from pathlib import Path
-from datetime import datetime
-from urllib.request import Request, urlopen
-import sys
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#AA3716">
+  <meta name="description" content="Marajoara III: jornal, agenda, comunicados e memórias do Edifício Marajoara III.">
+  <title>Marajoara III | Portal do Edifício</title>
+  <style>
+    :root {
+      --terra: #AA3716;
+      --terra2: #7D2A13;
+      --creme: #F2E3C7;
+      --papel: #FBF7EF;
+      --verde: #4D5F2D;
+      --floresta: #1E2F0F;
+      --texto: #2D180A;
+      --suave: #685646;
+      --borda: #E5D7BF;
+      --sombra: 0 10px 26px #2D180A14;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 92px; }
+    body { margin: 0; background: var(--papel); color: var(--texto); font: 16px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; }
+    a { color: inherit; }
+    button { cursor: pointer; font: inherit; }
+    a:focus-visible, button:focus-visible { outline: 3px solid var(--verde); outline-offset: 3px; }
+    [hidden] { display: none !important; }
+    .container { width: min(1120px, calc(100% - 30px)); margin-inline: auto; }
+    .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+    .skip { position: fixed; top: -90px; left: 12px; z-index: 999; padding: 9px 14px; background: var(--floresta); color: #fff; border-radius: 8px; }
+    .skip:focus { top: 10px; }
 
-URL = 'https://raw.githubusercontent.com/contatohyperborea-oss/marajoara-digital/main/index.html'
-DEST = Path.cwd() / 'index.html'
+    /* Cabeçalho */
+    .cabecalho { position: sticky; top: 0; z-index: 50; background: var(--papel); border-bottom: 1px solid var(--borda); }
+    .topo { min-height: 78px; display: flex; align-items: center; justify-content: space-between; gap: 12px; position: relative; }
+    .marca { display: flex; align-items: center; gap: 10px; min-width: 0; text-decoration: none; }
+    .marca img { width: 54px; height: 54px; object-fit: contain; flex: none; }
+    .marca-texto { display: flex; flex-direction: column; line-height: 1.15; }
+    .marca-texto strong { font: bold 19px Georgia, serif; }
+    .marca-texto small { margin-top: 5px; color: var(--verde); font-size: 10px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+    .menu { display: flex; align-items: center; gap: 19px; }
+    .menu a { font-size: 13px; font-weight: 750; text-decoration: none; }
+    .menu a:hover { color: var(--terra); }
+    .hamburguer { display: none; align-items: center; justify-content: center; flex-direction: column; gap: 5px; width: 45px; height: 45px; flex: none; background: #FFFDF9; border: 1px solid var(--borda); border-radius: 10px; }
+    .hamburguer span { display: block; width: 21px; height: 2px; border-radius: 3px; background: var(--terra2); transition: transform .2s, opacity .2s; }
+    .hamburguer[aria-expanded="true"] span:first-child { transform: translateY(7px) rotate(45deg); }
+    .hamburguer[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+    .hamburguer[aria-expanded="true"] span:last-child { transform: translateY(-7px) rotate(-45deg); }
 
+    /* Blocos de mídia: todos em 16:9 */
+    .video-box, .imagem-box { position: relative; display: block; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; border-radius: 12px; }
+    .video-box { background: var(--floresta); box-shadow: var(--sombra); }
+    .video-fundo { position: absolute; inset: 0; display: grid; place-items: center; background: var(--floresta) url("assets/banner-marajoara-fixo.webp") center / contain no-repeat; }
+    .video-iniciar { width: 74px; height: 74px; display: grid; place-items: center; padding: 0 0 0 5px; border: 2px solid white; border-radius: 50%; background: #AA3716E8; color: white; font-size: 33px; box-shadow: 0 5px 22px #0008; transition: transform .2s, background .2s; }
+    .video-iniciar:hover, .video-iniciar:focus-visible { transform: scale(1.07); background: var(--terra2); }
+    #youtube-container, #youtube-container iframe { position: absolute; inset: 0; width: 100%; height: 100%; }
+    #youtube-container { pointer-events: none; }
+    #youtube-container.ativo { pointer-events: auto; }
+    #youtube-container iframe { border: 0; background: var(--floresta); }
+    .video-acao { display: flex; justify-content: flex-end; margin-top: 4px; min-height: 20px; }
+    .video-acao a { color: var(--suave); font-size: 11px; opacity: .8; text-decoration: none; }
+    .video-acao a:hover { text-decoration: underline; opacity: 1; }
 
-def replace_once(text, old, new, label):
-    n = text.count(old)
-    if n != 1:
-        raise ValueError(f"Não foi possível alterar {label}: achei {n} ocorrências (esperava 1). O site pode ter mudado. Não substituí nada.")
-    return text.replace(old, new, 1)
+    /* Banner do jornal */
+    .conteudo { padding: 12px 0 25px; }
+    .jornal-link { display: block; text-decoration: none; border-radius: 12px; box-shadow: var(--sombra); transition: transform .2s, box-shadow .2s; }
+    .jornal-link:hover { transform: translateY(-2px); box-shadow: 0 14px 30px #2D180A22; }
+    .imagem-box { border: 1px solid #D8C8B1; background: linear-gradient(130deg, #F2E3C7, #E3C9A3); }
+    .imagem-box img { display: block; position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
+    .imagem-fundo { position: absolute; inset: 0; display: grid; place-content: center; gap: 8px; padding: 15px; color: var(--terra2); text-align: center; }
+    .imagem-fundo strong { font: bold clamp(19px, 3vw, 34px)/1.2 Georgia, serif; }
+    .imagem-fundo small { font-size: clamp(11px, 1.5vw, 15px); }
+    .link-discreto { display: block; margin: 7px 2px 0; color: var(--terra2); text-align: right; font-size: 13px; font-weight: 750; text-decoration: none; }
+    .link-discreto:hover { text-decoration: underline; }
 
+    /* Agenda e comunicados */
+    .secao-titulo { display: flex; align-items: center; gap: 12px; margin: 22px 0 12px; }
+    .secao-titulo h2 { margin: 0; font: bold clamp(22px, 3vw, 29px)/1.2 Georgia, serif; }
+    .secao-titulo::after { content: ""; height: 1px; background: var(--borda); flex: 1; }
+    .grade { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+    .tile { display: block; min-width: 0; overflow: hidden; border: 1px solid var(--borda); border-radius: 12px; background: #FFFDF9; text-decoration: none; transition: transform .2s, box-shadow .2s, border-color .2s; }
+    .tile:hover { transform: translateY(-2px); border-color: #C8A78C; box-shadow: var(--sombra); }
+    .tile .imagem-box { border: 0; border-radius: 0; }
+    .tile .imagem-fundo strong { font-size: clamp(18px, 2.2vw, 29px); }
+    .tile-legenda { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 9px; padding: 11px 14px; font-size: 13px; }
+    .tile-legenda strong, .estado { font-weight: 800; }
+    .estado { color: var(--terra2); font-size: 12px; }
+    .tile:hover .estado { text-decoration: underline; }
 
-def main():
-    print('Consultando a versão atual do index.html no GitHub...')
-    req = Request(URL, headers={'User-Agent': 'MarajoaraIII-Website-Optimizer/1.0', 'Cache-Control': 'no-cache'})
-    with urlopen(req, timeout=30) as res:
-        original = res.read().decode('utf-8-sig')
-    text = original
+    /* História e rodapé */
+    .historia { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 6px 14px; margin: 14px 0 25px; padding: 17px 19px; background: #F4EBD9; border: 1px solid var(--borda); border-radius: 12px; }
+    .historia h2 { margin: 0; font: bold clamp(19px, 2.4vw, 25px) Georgia, serif; }
+    .historia p { margin: 0; color: var(--suave); font-size: 13px; }
+    footer { padding: 15px; background: var(--terra2); color: #F5E8D5; text-align: center; font-size: 12px; }
 
-    text = replace_once(text, '''.video-box video {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  opacity: 0;
-  background: var(--floresta);
-}
+    /* Navegação móvel */
+    @media (max-width: 900px) {
+      .hamburguer { display: flex; }
+      .menu { display: none; position: absolute; top: 100%; right: 0; z-index: 60; width: max-content; max-width: calc(100vw - 28px); max-height: calc(100dvh - 85px); overflow-y: auto; flex-direction: column; align-items: stretch; gap: 5px; padding: 7px; background: var(--papel); border: 1px solid var(--borda); border-radius: 0 0 12px 12px; box-shadow: var(--sombra); }
+      .menu.aberto { display: flex; }
+      .menu a { display: flex; align-items: center; min-height: 39px; padding: 9px 12px; white-space: nowrap; line-height: 1.25; border: 1px solid var(--borda); border-radius: 8px; background: #FFFDF9; color: var(--terra2); font-size: 14px; }
+      .menu a:hover, .menu a:focus-visible { background: var(--creme); border-color: var(--terra); }
+    }
+    @media (max-width: 650px) {
+      .grade { grid-template-columns: 1fr; gap: 12px; }
+      .secao-titulo { margin-top: 19px; }
+    }
+    @media (max-width: 500px) {
+      .container { width: calc(100% - 28px); }
+      .topo { min-height: 72px; gap: 8px; }
+      .marca { gap: 8px; }
+      .marca img { width: 47px; height: 47px; }
+      .marca-texto strong { font-size: 17px; }
+      .marca-texto small { font-size: 9px; }
+      .video-box, .imagem-box { border-radius: 9px; }
+      .conteudo { padding: 8px 0 17px; }
+      .secao-titulo { margin: 18px 0 10px; }
+      .historia { margin: 12px 0 18px; padding: 14px; }
+      .tile .imagem-box { border-radius: 0; }
+    }
+    @media (min-width: 901px) {
+      .container { width: min(1200px, calc(100% - 64px)); }
+      .topo { min-height: 88px; }
+      .marca img { width: 60px; height: 60px; }
+      .marca-texto strong { font-size: 22px; }
+      .menu { gap: 23px; }
+      .menu a { padding: 9px 0; border-bottom: 2px solid transparent; }
+      .menu a:hover, .menu a:focus-visible { border-bottom-color: var(--terra); }
+      main > .container { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); align-items: stretch; column-gap: 24px; row-gap: 24px; padding-top: 28px; }
+      main > .container > section:first-of-type { min-width: 0; padding-top: 0 !important; }
+      .video-box { border-radius: 15px; }
+      #jornal { display: flex; flex-direction: column; min-width: 0; margin: 0; padding: 15px; gap: 12px; background: #FFFDF9; border: 1px solid var(--borda); border-radius: 15px; box-shadow: var(--sombra); }
+      #jornal::before { content: "ARQUIVO DIGITAL"; display: block; color: var(--verde); font-size: 11px; font-weight: 850; letter-spacing: .14em; }
+      #jornal .jornal-link, #jornal .imagem-box { border-radius: 9px; box-shadow: none; }
+      #jornal .link-discreto { margin: auto 0 0; padding: 11px 15px; background: var(--terra); color: #fff; border-radius: 9px; text-align: center; font-size: 13px; font-weight: 800; }
+      #jornal .link-discreto:hover { background: var(--terra2); text-decoration: none; }
+      main > .container > section:nth-of-type(3) { grid-column: 1 / -1; min-width: 0; }
+      .secao-titulo { margin: 8px 0 17px; }
+      .secao-titulo h2 { font-size: 29px; }
+      .grade { gap: 24px; }
+      .tile { border-radius: 15px; box-shadow: 0 7px 26px #2D180A0C; }
+      .tile .imagem-box { border-radius: 0; }
+      .tile-legenda { padding: 13px 17px; font-size: 14px; }
+      #historia { grid-column: 1 / -1; margin: 0 0 28px; padding: 22px 26px; }
+      #historia h2 { font-size: 25px; }
+      #historia p { font-size: 14px; }
+      footer { padding: 19px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition: none !important; animation: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#conteudo">Ir para o conteúdo</a>
+  <header class="cabecalho" id="inicio">
+    <div class="container topo">
+      <a class="marca" href="#inicio" aria-label="Marajoara III, início">
+        <img src="assets/logo-marajoara-oficial-otimizado1.svg" width="57" height="57" alt="" decoding="async">
+        <span class="marca-texto"><strong>Marajoara III</strong><small>Portal do edifício</small></span>
+      </a>
+      <button class="hamburguer" id="hamburguer" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-principal">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="menu" id="menu-principal" aria-label="Navegação principal">
+        <a href="#inicio">Início</a>
+        <a href="jornal.html">Jornal Marajoara III</a>
+        <a href="agenda.html">Agenda e Eventos</a>
+        <a href="comunicados.html">Comunicados</a>
+        <a href="historia.html">Nossa História</a>
+      </nav>
+    </div>
+  </header>
 
-.video-box video.pronto {
-  opacity: 1;
-}''', '''.video-box iframe {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  border: 0;
-  background: var(--floresta);
-}
-
-/* Botão leve: o YouTube só carrega após o toque */
-.video-iniciar {
-  display: grid;
-  place-items: center;
-  width: 72px;
-  height: 72px;
-  padding: 0 0 0 4px;
-  border: 2px solid #FFFFFF;
-  border-radius: 50%;
-  background: #AA3716ED;
-  color: #FFFFFF;
-  box-shadow: 0 6px 24px #0009;
-  font-size: 32px;
-  line-height: 1;
-  cursor: pointer;
-  transition: transform .2s, background .2s;
-}
-
-.video-iniciar:hover,
-.video-iniciar:focus-visible {
-  transform: scale(1.07);
-  background: #7D2A13;
-}''', 'estilo CSS do player')
-
-    text = replace_once(text, '''.video-acao button {
-  padding: 1px 3px;
-  background: none;
-  border: 0;
-  color: var(--suave);
-  font-size: 11px;
-  opacity: .65;
-}
-
-.video-acao button:hover,
-.video-acao button:focus-visible {
-  opacity: 1;
-  text-decoration: underline;
-}''', '''.video-acao a {
-  padding: 1px 3px;
-  color: var(--suave);
-  font-size: 11px;
-  opacity: .8;
-  text-decoration: none;
-}
-
-.video-acao a:hover,
-.video-acao a:focus-visible {
-  opacity: 1;
-  text-decoration: underline;
-}''', 'link do YouTube')
-
-    text = replace_once(text, 'url("assets/banner-marajoara-fixo.jpg")', 'url("assets/banner-marajoara-fixo.webp")', 'imagem de capa')
-    for basename in ['banner-jornal-marajoara3', 'banner-agenda-eventos', 'banner-comunicados']:
-        text = replace_once(text, f'src="assets/{basename}.jpg"', f'src="assets/{basename}.webp"', basename)
-
-    before = '      <div class="video-box">'
-    start = text.find(before)
-    end = text.find('\n    </section>', start)
-    if start < 0 or end < 0:
-        raise ValueError('Bloco de vídeo não encontrado. A página foi modificada; interrompendo.')
-    new_block = '''      <div class="video-box" aria-label="Vídeo de apresentação do Edifício Marajoara III">
-
-        <div class="video-fundo" id="video-fundo">
-          <button
-            class="video-iniciar"
-            id="reproduzir-video"
-            type="button"
-            aria-label="Reproduzir apresentação do Marajoara III no YouTube"
-            title="Reproduzir apresentação"
-          >
-            <span aria-hidden="true">▶</span>
-          </button>
+  <main id="conteudo">
+    <h1 class="sr-only">Marajoara III — Portal do Edifício</h1>
+    <div class="container">
+      <section aria-label="Apresentação do Edifício Marajoara III" style="padding-top:12px">
+        <div class="video-box" aria-label="Vídeo institucional do Edifício Marajoara III">
+          <div class="video-fundo" id="video-fundo">
+            <button class="video-iniciar" id="reproduzir-video" type="button" aria-label="Reproduzir apresentação do Marajoara III no YouTube" title="Reproduzir apresentação">
+              <span aria-hidden="true">▶</span>
+            </button>
+          </div>
+          <div id="youtube-container"></div>
         </div>
+        <div class="video-acao">
+          <a href="https://www.youtube.com/watch?v=HsGtVSaM8K4" target="_blank" rel="noopener noreferrer">Assistir no YouTube ↗</a>
+        </div>
+      </section>
 
-        <div id="youtube-container"></div>
+      <section class="conteudo" id="jornal" aria-labelledby="titulo-jornal">
+        <h2 class="sr-only" id="titulo-jornal">Jornal Marajoara III</h2>
+        <a class="jornal-link" href="jornal.html" aria-label="Abrir o Jornal Marajoara III">
+          <span class="imagem-box">
+            <span class="imagem-fundo"><strong>Jornal Marajoara III</strong><small>Notícias, melhorias e memória do edifício</small></span>
+            <img src="assets/banner-jornal-marajoara3.webp" width="1920" height="1080" loading="eager" decoding="async" alt="Capa do Jornal Marajoara III. Toque para abrir o jornal.">
+          </span>
+        </a>
+        <a class="link-discreto" href="jornal.html">Abrir o jornal ↗</a>
+      </section>
 
-      </div>
+      <section aria-labelledby="titulo-portal">
+        <div class="secao-titulo"><h2 id="titulo-portal">Explore o Marajoara III</h2></div>
+        <div class="grade">
+          <a class="tile" id="agenda" href="agenda.html" aria-label="Abrir Agenda e Eventos do Marajoara III">
+            <span class="imagem-box">
+              <span class="imagem-fundo"><strong>Agenda e Eventos</strong><small>Encontros e datas importantes</small></span>
+              <img src="assets/banner-agenda-eventos.webp" width="1920" height="1080" loading="lazy" decoding="async" alt="Banner de Agenda e Eventos">
+            </span>
+            <span class="tile-legenda"><strong>Agenda e Eventos</strong><span class="estado">Acessar agenda ↗</span></span>
+          </a>
+          <a class="tile" id="comunicados" href="comunicados.html" aria-label="Abrir Comunicados do Marajoara III">
+            <span class="imagem-box">
+              <span class="imagem-fundo"><strong>Comunicados</strong><small>Informações do edifício</small></span>
+              <img src="assets/banner-comunicados.webp" width="1920" height="1080" loading="lazy" decoding="async" alt="Banner de Comunicados">
+            </span>
+            <span class="tile-legenda"><strong>Comunicados</strong><span class="estado">Ver comunicados ↗</span></span>
+          </a>
+        </div>
+      </section>
 
-      <div class="video-acao">
-        <a
-          href="https://www.youtube.com/watch?v=HsGtVSaM8K4"
-          target="_blank"
-          rel="noopener noreferrer"
-        >Assistir no YouTube ↗</a>
-      </div>
-'''
-    text = text[:start] + new_block + text[end:]
+      <section class="historia" id="historia" aria-labelledby="titulo-historia">
+        <h2 id="titulo-historia">Nossa História</h2>
+        <p>Memórias do Edifício Marajoara III · Em preparação</p>
+      </section>
+    </div>
+  </main>
 
-    script_start = text.find('/* =====================================\n   VÍDEO PRINCIPAL\n   E IMAGEM FIXA DE SEGURANÇA')
-    script_end = text.find('\n</script>', script_start)
-    if script_start < 0 or script_end < 0:
-        raise ValueError('JavaScript antigo não encontrado. A página foi modificada; interrompendo.')
-    new_script = '''/* =====================================
-   PLAYER DO YOUTUBE: CARREGAMENTO SOB DEMANDA
-   ===================================== */
+  <footer>© <span id="ano">2026</span> Marajoara III · Edifício Marajoara III</footer>
 
-const botaoVideo = $('reproduzir-video');
-const fundoVideo = $('video-fundo');
-const conteinerVideo = $('youtube-container');
+  <script>
+    'use strict';
+    const $ = id => document.getElementById(id);
+    $('ano').textContent = new Date().getFullYear();
 
-botaoVideo.addEventListener('click', () => {
+    const botao = $('hamburguer');
+    const menu = $('menu-principal');
+    function abrirMenu(aberto) {
+      menu.classList.toggle('aberto', aberto);
+      botao.setAttribute('aria-expanded', String(aberto));
+      botao.setAttribute('aria-label', aberto ? 'Fechar menu' : 'Abrir menu');
+    }
+    botao.addEventListener('click', () => abrirMenu(botao.getAttribute('aria-expanded') !== 'true'));
+    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => abrirMenu(false)));
+    document.addEventListener('click', e => {
+      if (!menu.contains(e.target) && !botao.contains(e.target)) abrirMenu(false);
+    });
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && botao.getAttribute('aria-expanded') === 'true') {
+        abrirMenu(false);
+        botao.focus();
+      }
+    });
+    window.addEventListener('resize', () => { if (innerWidth > 900) abrirMenu(false); });
 
-  if (conteinerVideo.querySelector('iframe')) return;
-
-  const player = document.createElement('iframe');
-
-  player.title = 'Apresentação do Edifício Marajoara III';
-  player.src =
-    'https://www.youtube-nocookie.com/embed/HsGtVSaM8K4' +
-    '?autoplay=1&playsinline=1&rel=0';
-
-  player.setAttribute(
-    'allow',
-    'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; web-share'
-  );
-
-  player.setAttribute('allowfullscreen', '');
-  player.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
-
-  player.addEventListener('load', () => {
-    fundoVideo.hidden = true;
-  }, {once:true});
-
-  conteinerVideo.appendChild(player);
-
-  // Evita vários cliques enquanto carrega o player.
-  botaoVideo.disabled = true;
-  botaoVideo.setAttribute('aria-label', 'Carregando apresentação');
-
-});
-'''
-    text = text[:script_start] + new_script + text[script_end:]
-
-    text = replace_once(text, '''/* A IMAGEM JÁ POSSUI LOGO E TEXTO */
-
-.video-fundo > img,
-.video-fundo > strong {
-  display: none;
-}
-
-''', '', 'CSS antigo da capa')
-
-    stale = ['banner-marajoara.mp4', 'banner-marajoara-fixo.jpg', 'banner-jornal-marajoara3.jpg', 'banner-agenda-eventos.jpg', 'banner-comunicados.jpg', 'banner-video', 'controle-video']
-    bad = [ref for ref in stale if ref in text]
-    if bad or not (17000 < len(text) < 27000) or 'HsGtVSaM8K4' not in text:
-        raise ValueError('Falha na checagem final: ' + ', '.join(bad))
-
-    if DEST.exists():
-        stamp = datetime.now().strftime('%Y%m%d-%H%M%S')
-        backup = DEST.with_name('index-backup-' + stamp + '.html')
-        backup.write_bytes(DEST.read_bytes())
-        print('Backup do index antigo:', backup.name)
-    DEST.write_text(text, encoding='utf-8')
-    print('\nSUCESSO: index.html criado em:', DEST)
-    print('Video YouTube: HsGtVSaM8K4')
-    print('WebP: capa, jornal, agenda e comunicados')
-    print('O GitHub NÃO foi alterado: agora envie o index.html criado para a raiz do repositório e faça o commit.')
-
-
-if __name__ == '__main__':
-    try:
-        main()
-    except Exception as exc:
-        print('\nERRO:', exc, file=sys.stderr)
-        sys.exit(1)
+    // Só cria o iframe do YouTube quando o visitante solicitar.
+    const botaoVideo = $('reproduzir-video');
+    const fundoVideo = $('video-fundo');
+    const conteinerVideo = $('youtube-container');
+    botaoVideo.addEventListener('click', () => {
+      if (conteinerVideo.querySelector('iframe')) return;
+      const player = document.createElement('iframe');
+      player.title = 'Apresentação do Edifício Marajoara III';
+      player.src = 'https://www.youtube-nocookie.com/embed/HsGtVSaM8K4?autoplay=1&playsinline=1&rel=0';
+      player.setAttribute('allow', 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; web-share');
+      player.setAttribute('allowfullscreen', '');
+      player.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
+      player.addEventListener('load', () => {
+        fundoVideo.hidden = true;
+        conteinerVideo.classList.add('ativo');
+      }, { once: true });
+      conteinerVideo.appendChild(player);
+      botaoVideo.disabled = true;
+      botaoVideo.setAttribute('aria-label', 'Carregando apresentação');
+    });
+  </script>
+</body>
+</html>
