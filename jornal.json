@@ -366,23 +366,23 @@
       ]
     }
   ],
-  "edicoes": [
-    {
-      "numero": "1",
-      "titulo": "Jornal Marajoara — Edição 1",
-      "data_publicacao": "2026-10-27",
-      "descricao": "Primeira edição do Jornal Marajoara",
-      "arquivo": "jornal-marajoara-01.pdf",
-      "imagem": "jornal-marajoara-01.jpg"
-    },
-    
-    {
-  "numero": "2",
-  "titulo": "Jornal Marajoara — Edição 2",
-  "data_publicacao": "2026-11-24",
-  "descricao": "Segunda edição do Jornal Marajoara",
-  "arquivo": "marajoara-2-edicao.pdf",
-  "imagem": "marajoara-2-edicao.jpg"
-    }
-  ]
+  
+"edicoes": [
+  {
+    "numero": "1",
+    "titulo": "Jornal Marajoara III — 1ª Edição",
+    "data_publicacao": "2026-10-27",
+    "descricao": "Primeira edição do Jornal Marajoara III",
+    "arquivo": "assets/jornal/jornal-marajoara-01.pdf",
+    "imagem": "assets/jornal/jornal-marajoara-01.webp"
+  },
+  {
+    "numero": "2",
+    "titulo": "Jornal Marajoara III — 2ª Edição",
+    "data_publicacao": "2026-11-24",
+    "descricao": "Segunda edição do Jornal Marajoara III",
+    "arquivo": "assets/jornal/jornal-marajoara-02.pdf",
+    "imagem": "assets/jornal/jornal-marajoara-02.webp"
+  }
+]
 }
