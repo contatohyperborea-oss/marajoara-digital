@@ -374,6 +374,15 @@
       "descricao": "Primeira edição do Jornal Marajoara",
       "arquivo": "jornal-marajoara-01.pdf",
       "imagem": "jornal-marajoara-01.jpg"
+    },
+    
+    {
+  "numero": "2",
+  "titulo": "Jornal Marajoara — Edição 2",
+  "data_publicacao": "2026-11-24",
+  "descricao": "Segunda edição do Jornal Marajoara",
+  "arquivo": "NOME-DO-PDF.pdf",
+  "imagem": "NOME-DA-CAPA.jpg"
     }
   ]
 }
